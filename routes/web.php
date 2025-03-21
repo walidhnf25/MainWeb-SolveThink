@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MarketplaceController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +35,7 @@ route::middleware(['guest:user'])->group(function () {
     Route::post('/login', [AuthController::class, 'proseslogin'])->name('proseslogin');
     Route::post('/register', [AuthController::class, 'prosesregistrasi'])->name('prosesregistrasi');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::post('/Course', [CategoryController::class, 'store'])->name('category.store');
+
 });

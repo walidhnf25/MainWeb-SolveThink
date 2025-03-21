@@ -1,9 +1,9 @@
 @extends('layouts.tabler')
 @section('content')
-    <div class="container-xxl bg-white p-0">
+    <div class="container-fluid bg-white p-0">
         <!-- Navbar & Hero Start -->
-        <div class="container-xxl position-relative p-0">
-            <div class="container-xxl py-5 bg-primary hero-header mb-5">
+        <div class="container-fluid position-relative p-0">
+            <div class="container-fluid py-5 bg-primary hero-header mb-5">
                 <div class="container my-5 py-5 px-lg-5">
                     <div class="row g-5 py-5">
                         <div class="col-lg-6 text-center text-lg-start">
@@ -22,7 +22,7 @@
         <!-- Navbar & Hero End -->
 
         <!-- About Start -->
-        <div class="container-xxl py-5">
+        <div class="container-fluid py-5">
             <div class="container px-lg-5">
                 <div class="row g-5">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -55,6 +55,89 @@
                 </div>
             </div>
         </div>
+
+        <div class="container py-5">
+            <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="position-relative d-inline text-primary ps-4">Our Course</h6>
+                <h2 class="mt-2">Course Terbaru</h2>
+            </div>
+
+            @if(auth()->user() && auth()->user()->role === 'admin')
+            <div class="d-flex justify-content-end mb-4 wow fadeInUp" data-wow-delay="0.1s">
+                <button id="open-modal" class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#addModal">
+                    <strong>+</strong> Add Course
+                </button>
+            </div>
+            @endif
+            @php
+                $colors = [
+                    'linear-gradient(135deg, #FF9A8B, #FF6A88)',
+                    'linear-gradient(135deg, #56CCF2, #2F80ED)',
+                    'linear-gradient(135deg, #6A11CB, #2575FC)',
+                    'linear-gradient(135deg, #F7971E, #FFD200)',
+                    'linear-gradient(135deg, #00C9FF, #92FE9D)',
+                    'linear-gradient(135deg, #FF512F, #DD2476)',
+                ];
+            @endphp
+            @foreach ($categories as $ctg)
+            <div class="category-section mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="section-title position-relative mb-4 pb-2">
+                    <h2 class="mt-1">{{ $ctg->category_name }}</h2>
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <div class="col card-item">
+                        @php
+                            $randomColor = $colors[array_rand($colors)];
+                        @endphp
+                        <div class="card text-white shadow-lg border-0 h-100" style="background: {{ $randomColor }};">
+                            <div class="card-body d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 180px;">
+                                <h4 class="card-title fw-bold">{{ $ctg->category_detail }}</h4>
+                                <p class="mb-2">{{ $ctg->category_title }} | <strong>{{ $ctg->category_subscription }}</strong></p>
+                                <a href="#" class="btn btn-outline-light rounded-pill mt-3">View more →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+        </div>
+
+            <!-- Add New Materi -->
+            <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addModalLabel">Tambah Materi Baru</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="addCardForm" action="{{ route('category.store') }}" method="POST">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="namedetail" class="form-label">Name Detail</label>
+                                    <input type="text" class="form-control" id="materiName" required name="category_detail">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="materiName" class="form-label">Nama Materi</label>
+                                    <input type="text" class="form-control" id="materiName" required name="category_name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="materiCategory" class="form-label">Kategori Materi</label>
+                                    <input type="text" class="form-control" id="materiCategory" required name="category_title">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="materiSubscription" class="form-label">Jenis Berlangganan</label>
+                                    <select class="form-select" id="materiSubscription" name="category_subscription">
+                                        <option value="Gratis">Gratis</option>
+                                        <option value="Premium">Premium</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Tambah</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <!-- About End -->
 
         <div class="container-xxl py-5">
@@ -218,7 +301,7 @@
         <!-- Portfolio End -->
 
         <!-- Testimonial Start -->
-        <div class="container-xxl bg-primary testimonial py-5 my-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container-fluid bg-primary testimonial py-5 my-5 wow fadeInUp" data-wow-delay="0.1s">
             <div class="container py-5 px-lg-5">
                 <div class="owl-carousel testimonial-carousel">
                     <div class="testimonial-item bg-transparent border rounded text-white p-4">
@@ -524,10 +607,10 @@
             $("#edit_harga_barang").val(harga);
             $("#edit_link_shopee").val(link);
             $("#preview_gambar").attr("src", gambar);
-            
+
             // Set action URL pada form edit
             $("#formEditMarketplace").attr("action", "/marketplace/update/" + id);
-            
+
             $("#modal-edit-marketplace").modal("show");
         });
 
@@ -543,10 +626,10 @@
             $("#edit_harga_produk").val(harga);
             $("#edit_link_shopee1").val(link);
             $("#preview_gambar1").attr("src", gambar);
-            
+
             // Set action URL pada form edit
             $("#formEditProduct").attr("action", "/product/update/" + id);
-            
+
             $("#modal-edit-product").modal("show");
         });
 
@@ -597,10 +680,12 @@
         });
 
         $(document).ready(function() {
-            // Menampilkan modal untuk menambah tipe pekerjaan
             $("#btnTambahProduct").click(function() {
                 $('#modal-inputproduct').modal('show');
             });
         });
+
+        $(document).ready(function() {
+    });
     </script>
 @endpush
