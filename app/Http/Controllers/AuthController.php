@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Marketplace;
 use App\Models\Product;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Categories;
 
 class AuthController extends Controller
 {
@@ -14,7 +15,8 @@ class AuthController extends Controller
     {
         $marketplace = Marketplace::paginate(4);
         $product = Product::paginate(3);
-        return view('index', compact('marketplace', 'product'));
+        $categories = Categories::all();
+        return view('index', compact('marketplace', 'product', 'categories'));
     }
 
     public function proseslogin(Request $request)
