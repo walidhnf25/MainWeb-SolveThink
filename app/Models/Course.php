@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Product extends Model
+class Course extends Model
 {
-    use HasFactory;
-    protected $table = 'product';
+    use HasFactory, Notifiable;
+    protected $table = 'course';
     protected $fillable = [
-        'nama_produk', 'harga_produk', 'link_shopee', 'gambar',
+        'nama_materi', 'kategori_kursus', 'kategori_berlangganan', 'link_materi',
     ];
 }

@@ -4,13 +4,13 @@
                 <div class="container my-5 py-5 px-lg-5">
                     <div class="row g-5 py-5">
                         <div class="col-12 text-center">
-                            <h1 class="text-white animated zoomIn">Marketplace</h1>
+                            <h1 class="text-white animated zoomIn">Electronic Components</h1>
                             <hr class="bg-white mx-auto mt-0" style="width: 90px;">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb justify-content-center">
                                     <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
                                     <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                                    <li class="breadcrumb-item text-white active" aria-current="page">Marketplace</li>
+                                    <li class="breadcrumb-item text-white active" aria-current="page">Component Electronics</li>
                                 </ol>
                             </nav>
                         </div>
@@ -23,25 +23,25 @@
         <div class="container-xxl py-5">
             <div class="container px-lg-5">
                 <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="position-relative d-inline text-primary ps-4">Our Marketplace</h6>
+                    <h6 class="position-relative d-inline text-primary ps-4">Our Electronic Component</h6>
                     <h2 class="mt-2">Apa yang Anda Butuhkan?</h2>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-12 text-end">
                         @if(auth()->check() && auth()->user()->role === 'admin')
-                            <a href="#" class="btn btn-primary" id="btnTambahMarketplace">
+                            <a href="#" class="btn btn-primary" id="btnTambahComponent">
                                 <i class="fa fa-plus"></i>
                             </a>
                         @endif
                     </div>
                 </div>
                 <div class="row g-3">
-                    @foreach($marketplace as $item)
+                    @foreach($component as $item)
                         <div class="col-lg-3 col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
                             <div class="card border-0 shadow rounded position-relative text-center" style="max-width: 250px; margin: auto;">
                                 @if(auth()->check() && auth()->user()->role === 'admin')
                                     <div class="position-absolute top-0 end-0 m-2 d-flex">
-                                        <a href="#" class="btn btn-success btn-sm me-1 btnEditMarketplace"
+                                        <a href="#" class="btn btn-success btn-sm me-1 btnEditComponent"
                                             data-id="{{ $item->id }}"
                                             data-nama="{{ $item->nama_barang }}"
                                             data-harga="{{ $item->harga_barang }}"
@@ -49,7 +49,7 @@
                                             data-gambar="{{ asset($item->gambar) }}">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <form action="{{ route('marketplace.destroy', $item->id) }}" method="POST" class="d-inline delete-form">
+                                        <form action="{{ route('component.destroy', $item->id) }}" method="POST" class="d-inline delete-form">
                                             @csrf
                                             @method('DELETE')
                                             <button type="button" class="btn btn-danger btn-sm delete-confirm">
@@ -77,16 +77,16 @@
         </div>
         <!-- Service End -->
 
-        <div class="modal fade" id="modal-inputmarketplace" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="modal-inputcomponent" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Tambah Marketplace</h5>
+                        <h5 class="modal-title">Tambah Electronic Components</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ route('marketplace.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('component.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-12">
@@ -124,15 +124,15 @@
             </div>
         </div>
 
-        <div class="modal fade" id="modal-edit-marketplace" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="modal-edit-component" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Edit Marketplace</h5>
+                        <h5 class="modal-title">Edit Electronic Components</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="formEditMarketplace" action="" method="post" enctype="multipart/form-data">
+                        <form id="formEditComponent" action="" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <input type="hidden" id="edit_id" name="id">
@@ -166,12 +166,12 @@
     <script>
         $(document).ready(function() {
             // Menampilkan modal untuk menambah tipe pekerjaan
-            $("#btnTambahMarketplace").click(function() {
-                $('#modal-inputmarketplace').modal('show');
+            $("#btnTambahComponent").click(function() {
+                $('#modal-inputcomponent').modal('show');
             });
         });
 
-        $(document).on("click", ".btnEditMarketplace", function () {
+        $(document).on("click", ".btnEditComponent", function () {
             let id = $(this).data("id");
             let nama = $(this).data("nama");
             let harga = $(this).data("harga");
@@ -185,9 +185,9 @@
             $("#preview_gambar").attr("src", gambar);
             
             // Set action URL pada form edit
-            $("#formEditMarketplace").attr("action", "/marketplace/update/" + id);
+            $("#formEditComponent").attr("action", "/component/update/" + id);
             
-            $("#modal-edit-marketplace").modal("show");
+            $("#modal-edit-component").modal("show");
         });
 
         document.addEventListener('DOMContentLoaded', function() {
