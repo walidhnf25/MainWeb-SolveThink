@@ -11,17 +11,17 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
                 <a href="{{ route('index') }}" class="nav-item nav-link {{ Request::routeIs('index') ? 'active' : '' }}">Home</a>
-                <a href="about.html" class="nav-item nav-link {{ Request::is('about*') ? 'active' : '' }}">About</a>
-                <a href="{{ route('marketplace.index') }}" class="nav-item nav-link {{ Request::routeIs('marketplace.index') ? 'active' : '' }}">Marketplace</a>
-                <a href="{{ route('product.index') }}" class="nav-item nav-link {{ Request::is('product*') ? 'active' : '' }}">Product</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle {{ Request::is('team*') || Request::is('testimonial*') || Request::is('404*') ? 'active' : '' }}" data-bs-toggle="dropdown">Course</a>
+                    <a href="#" class="nav-link dropdown-toggle {{ Request::is('software*') || Request::is('ml-ai*') || Request::is('iot*') ? 'active' : '' }}" data-bs-toggle="dropdown">Courses</a>
                     <div class="dropdown-menu m-0">
-                        <a href="team.html" class="dropdown-item {{ Request::is('team*') ? 'active' : '' }}">Software Development</a>
-                        <a href="testimonial.html" class="dropdown-item {{ Request::is('testimonial*') ? 'active' : '' }}">Internet of Things</a>
-                        <a href="404.html" class="dropdown-item {{ Request::is('404*') ? 'active' : '' }}">Machine Learning</a>
+                        <a href="{{ route('software') }}" class="dropdown-item {{ Request::is('software*') ? 'active' : '' }}">Software Development</a>
+                        <a href="{{ route('ml-ai') }}" class="dropdown-item {{ Request::is('ml-ai*') ? 'active' : '' }}">Machine Learning/Artificial Intelligence</a>
+                        <a href="{{ route('iot') }}" class="dropdown-item {{ Request::is('iot*') ? 'active' : '' }}">Internet of Things</a>
                     </div>
                 </div>
+                <a href="{{ route('component.index') }}" class="nav-item nav-link {{ Request::routeIs('component.index') ? 'active' : '' }}">Electronic Components</a>
+                <a href="{{ route('product.index') }}" class="nav-item nav-link {{ Request::is('product*') ? 'active' : '' }}">Products</a>
+                <a href="about.html" class="nav-item nav-link {{ Request::is('about*') ? 'active' : '' }}">About</a>
                 <a href="contact.html" class="nav-item nav-link {{ Request::is('contact*') ? 'active' : '' }}">Contact</a>
             </div>
             <button type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
@@ -116,12 +116,12 @@
                 <form action="{{ route('proseslogin') }}" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password" required>
                     </div>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-primary">Login</button>

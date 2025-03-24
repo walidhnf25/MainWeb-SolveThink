@@ -461,6 +461,70 @@ h6,
     transition-delay: .15s;
 }
 
+/*** Project Portfolio ***/
+#product-flters .btn {
+    position: relative;
+    display: inline-block;
+    margin: 10px 4px 0 4px;
+    transition: .5s;
+}
+
+#product-flters .btn::after {
+    position: absolute;
+    content: "";
+    right: -1px;
+    bottom: -1px;
+    border-left: 20px solid transparent;
+    border-right: 0 solid transparent;
+    border-bottom: 50px solid #FFFFFF;
+}
+
+#product-flters .btn:hover,
+#product-flters .btn.active {
+    color: var(--light);
+    background: var(--primary);
+}
+
+.product-overlay {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    top: 0;
+    left: 0;
+    background: var(--primary);
+    transition: .5s;
+    z-index: 1;
+    opacity: 0;
+}
+
+.product-item:hover .product-overlay {
+    opacity: 1;
+}
+
+.product-item .btn {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../img/icon-shape-white.png) center center no-repeat;
+    border: none;
+    transition: .5s;
+    opacity: 0;
+    z-index: 2;
+}
+
+.product-item:hover .btn {
+    opacity: 1;
+    transition-delay: .15s;
+}
 
 /*** Footer ***/
 .footer {
@@ -528,4 +592,56 @@ h6,
     margin-right: 0;
     padding-right: 0;
     border-right: none;
+}
+
+.card-item {
+    transition: all 0.4s ease;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.card-item.hide {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+    position: absolute;
+}
+
+/* Neon Biru (untuk SD sebelumnya) */
+.card.bg-neon-blue {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.card.bg-neon-blue:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.6);
+}
+
+/* Gradasi Merah (untuk ML/AI) */
+.card.bg-neon-red {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    color: white;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.card.bg-neon-red:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(255, 75, 43, 0.5);
+}
+
+/* Gradasi Kuning (untuk IoT) */
+.card.bg-neon-yellow {
+    background: linear-gradient(135deg, #fceabb, #f8b500); /* gradasi kuning elegan */
+    color: #333; /* teks gelap agar kontras dengan kuning */
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.card.bg-neon-yellow:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(248, 181, 0, 0.5);
 }
