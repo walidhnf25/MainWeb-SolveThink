@@ -44,7 +44,7 @@ class ProductController extends Controller
         ]);
 
         // Redirect ke halaman tertentu dengan pesan sukses
-        return redirect()->back()->with('success', 'Marketplace berhasil ditambahkan!');
+        return redirect()->back()->with('success', 'Product berhasil ditambahkan!');
     }
 
     public function update(Request $request, $id)
@@ -83,7 +83,7 @@ class ProductController extends Controller
             'gambar' => $gambarPath,
         ]);
 
-        return redirect()->back()->with('success', 'Marketplace berhasil diperbarui!');
+        return redirect()->back()->with('success', 'Product berhasil diperbarui!');
     }
 
     public function destroy($id)
@@ -100,6 +100,6 @@ class ProductController extends Controller
         $product->delete();
 
         // Redirect dengan pesan sukses
-        return redirect()->back()->with('success', 'Item berhasil dihapus.');
+        return redirect()->back()->with('success', 'Product berhasil dihapus.');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMarketplaceTable extends Migration
+class CreateComponentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMarketplaceTable extends Migration
      */
     public function up()
     {
-        Schema::create('marketplace', function (Blueprint $table) {
+        Schema::create('component', function (Blueprint $table) {
             $table->id();
             $table->string('nama_barang')->nullable();
             $table->string('harga_barang')->nullable();
@@ -30,6 +30,6 @@ class CreateMarketplaceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('marketplace');
+        Schema::dropIfExists('component');
     }
 }

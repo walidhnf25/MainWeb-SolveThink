@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Marketplace;
+use App\Models\Component;
 
-class MarketplaceController extends Controller
+class ComponentController extends Controller
 {
     public function index()
     {
-        // Ambil semua data marketplace
-        $marketplace = Marketplace::all();
+        // Ambil semua data component
+        $component = Component::all();
 
-        // Kirim data ke view marketplace.blade.php
-        return view('marketplace', compact('marketplace'));
+        // Kirim data ke view component.blade.php
+        return view('component', compact('component'));
     }
     
     public function store(Request $request)
@@ -31,12 +31,12 @@ class MarketplaceController extends Controller
         if ($request->hasFile('gambar')) {
             $gambar = $request->file('gambar');
             $gambarNama = time() . '_' . $gambar->getClientOriginalName(); // Buat nama unik
-            $gambar->move(public_path('marketplace-images'), $gambarNama); // Simpan ke public
-            $gambarPath = 'marketplace-images/' . $gambarNama; // Simpan path ke database
+            $gambar->move(public_path('component-images'), $gambarNama); // Simpan ke public
+            $gambarPath = 'component-images/' . $gambarNama; // Simpan path ke database
         }
 
         // Simpan data ke database
-        Marketplace::create([
+        Component::create([
             'nama_barang' => $request->nama_barang,
             'harga_barang' => $request->harga_barang,
             'link_shopee' => $request->link_shopee,
@@ -44,7 +44,7 @@ class MarketplaceController extends Controller
         ]);
 
         // Redirect ke halaman tertentu dengan pesan sukses
-        return redirect()->back()->with('success', 'Marketplace berhasil ditambahkan!');
+        return redirect()->back()->with('success', 'Component Electronics berhasil ditambahkan!');
     }
 
     public function update(Request $request, $id)
@@ -56,48 +56,48 @@ class MarketplaceController extends Controller
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Ambil data marketplace berdasarkan ID
-        $marketplace = Marketplace::findOrFail($id);
+        // Ambil data component berdasarkan ID
+        $component = Component::findOrFail($id);
 
         // Simpan gambar baru jika ada
         if ($request->hasFile('gambar')) {
             // Hapus gambar lama jika ada
-            if ($marketplace->gambar && file_exists(public_path($marketplace->gambar))) {
-                unlink(public_path($marketplace->gambar));
+            if ($component->gambar && file_exists(public_path($component->gambar))) {
+                unlink(public_path($component->gambar));
             }
 
             // Simpan gambar baru
             $gambar = $request->file('gambar');
             $gambarNama = time() . '_' . $gambar->getClientOriginalName();
-            $gambar->move(public_path('marketplace-images'), $gambarNama);
-            $gambarPath = 'marketplace-images/' . $gambarNama;
+            $gambar->move(public_path('component-images'), $gambarNama);
+            $gambarPath = 'component-images/' . $gambarNama;
         } else {
-            $gambarPath = $marketplace->gambar; // Gunakan gambar lama jika tidak ada yang diunggah
+            $gambarPath = $component->gambar; // Gunakan gambar lama jika tidak ada yang diunggah
         }
 
         // Update data di database
-        $marketplace->update([
+        $component->update([
             'nama_barang' => $request->nama_barang,
             'harga_barang' => $request->harga_barang,
             'link_shopee' => $request->link_shopee,
             'gambar' => $gambarPath,
         ]);
 
-        return redirect()->back()->with('success', 'Marketplace berhasil diperbarui!');
+        return redirect()->back()->with('success', 'Componen Electronics berhasil diperbarui!');
     }
 
     public function destroy($id)
     {
         // Cari data berdasarkan ID
-        $marketplace = Marketplace::findOrFail($id);
+        $component = Component::findOrFail($id);
 
         // Hapus file gambar jika ada
-        if ($marketplace->gambar && file_exists(public_path($marketplace->gambar))) {
-            unlink(public_path($marketplace->gambar));
+        if ($component->gambar && file_exists(public_path($component->gambar))) {
+            unlink(public_path($component->gambar));
         }
 
         // Hapus data dari database
-        $marketplace->delete();
+        $component->delete();
 
         // Redirect dengan pesan sukses
         return redirect()->back()->with('success', 'Item berhasil dihapus.');

@@ -7,7 +7,7 @@
                 <div class="container my-5 py-5 px-lg-5">
                     <div class="row g-5 py-5">
                         <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="text-white mb-4 animated zoomIn">Solve Think</h1>
+                            <h1 class="text-white mb-4 animated zoomIn">SolveThink</h1>
                             <p class="text-white pb-3 animated zoomIn">Tempor rebum no at dolore lorem clita rebum rebum ipsum rebum stet dolor sed justo kasd. Ut dolor sed magna dolor sea diam. Sit diam sit justo amet ipsum vero ipsum clita lorem.</p>
                             <a href="" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Berlangganan</a>
                             <a href="" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a>
@@ -30,23 +30,22 @@
                             <h6 class="position-relative text-primary ps-4">About Us</h6>
                             <h2 class="mt-2">The best .... solution dengan pengalaman terbaik.</h2>
                         </div>
-                        <p class="mb-4">Tempor erat elitr rebum at clita...</p>
+                        <p class="mb-4">SolveThink Menyediakan:</p>
                         <div class="row g-3">
                             <div class="col-sm-6">
-                                <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Berpengalaman</h6>
-                                <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Professional</h6>
+                                <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Bimbingan Belajar</h6>
+                                <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Materi Pembelajaran</h6>
                             </div>
                             <div class="col-sm-6">
-                                <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Lengkap</h6>
-                                <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Harga Terjangkau</h6>
+                                <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Komponen Elektronika</h6>
+                                <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Produk SW dan HW</h6>
                             </div>
                         </div>
                         <div class="d-flex align-items-center mt-4">
                             <a class="btn btn-primary rounded-pill px-4 me-3" href="">Read More</a>
-                            <a class="btn btn-outline-primary btn-square me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary btn-square me-3" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-primary btn-square me-3" href=""><i class="fab fa-whatsapp"></i></a>
                             <a class="btn btn-outline-primary btn-square me-3" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-discord"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -59,111 +58,174 @@
         <div class="container py-5">
             <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="position-relative d-inline text-primary ps-4">Our Course</h6>
-                <h2 class="mt-2">Course Terbaru</h2>
+                <h2 class="mt-2">Materi-Materi Pembelajaran</h2>
             </div>
 
             @if(auth()->user() && auth()->user()->role === 'admin')
             <div class="d-flex justify-content-end mb-4 wow fadeInUp" data-wow-delay="0.1s">
-                <button id="open-modal" class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#addModal">
-                    <strong>+</strong> Add Course
-                </button>
+                <a href="#" class="btn btn-primary" id="btnTambahCourse">
+                    <i class="fa fa-plus"></i>
+                </a>
             </div>
             @endif
-            @php
-                $colors = [
-                    'linear-gradient(135deg, #FF9A8B, #FF6A88)',
-                    'linear-gradient(135deg, #56CCF2, #2F80ED)',
-                    'linear-gradient(135deg, #6A11CB, #2575FC)',
-                    'linear-gradient(135deg, #F7971E, #FFD200)',
-                    'linear-gradient(135deg, #00C9FF, #92FE9D)',
-                    'linear-gradient(135deg, #FF512F, #DD2476)',
-                ];
-            @endphp
-            @foreach ($categories as $ctg)
+            <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-12 text-center">
+                    <ul class="list-inline mb-5" id="portfolio-flters">
+                        <li class="btn px-3 pe-4 active" data-filter="all">All</li>
+                        <li class="btn px-3 pe-4" data-filter="free">Free</li>
+                        <li class="btn px-3 pe-4" data-filter="premium">Premium</li>
+                    </ul>
+                </div>
+            </div>
             <div class="category-section mb-5 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="section-title position-relative mb-4 pb-2">
-                    <h2 class="mt-1">{{ $ctg->category_name }}</h2>
+                    <h2 class="mt-1">Software Development</h2>
                 </div>
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                    <div class="col card-item">
-                        @php
-                            $randomColor = $colors[array_rand($colors)];
-                        @endphp
-                        <div class="card text-white shadow-lg border-0 h-100" style="background: {{ $randomColor }};">
-                            <div class="card-body d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 180px;">
-                                <h4 class="card-title fw-bold">{{ $ctg->category_detail }}</h4>
-                                <p class="mb-2">{{ $ctg->category_title }} | <strong>{{ $ctg->category_subscription }}</strong></p>
-                                <a href="#" class="btn btn-outline-light rounded-pill mt-3">View more →</a>
+                @foreach ($courseSD as $d)
+                        @if ($d->kategori_kursus === 'SD')
+                        <div class="col card-item {{ strtolower($d->kategori_berlangganan) }}">
+                            <div class="card bg-neon-blue shadow-lg h-100">
+                            @if(auth()->check() && auth()->user()->role === 'admin')
+                                <div class="position-absolute top-0 end-0 m-2 d-flex">
+                                    <a href="#" class="btn btn-success btn-sm me-1 btnEditCourse" data-id="{{ $d->id }}" data-nama="{{ $d->nama_materi }}" data-kursus="{{ $d->kategori_kursus }}" data-berlangganan="{{ $d->kategori_berlangganan }}" data-link="{{ $d->link_materi }}"><i class="fa fa-edit"></i>
+                                    </a>
+                                    <form action="{{ route('course.destroy', $d->id) }}" method="POST" class="d-inline delete-form">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="button" class="btn btn-danger btn-sm delete-confirm">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                        </form>
+                                </div>
+                            @endif
+                                <div class="card-body d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 180px;">
+                                    <h4 class="card-title fw-bold">{{ $d->nama_materi }}</h4>
+                                    <a href="{{ $d->link_materi }}" class="btn btn-outline-dark rounded-pill mt-3" target="_blank" rel="noopener noreferrer">View more →</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        @endif
+                    @endforeach
                 </div>
             </div>
-        @endforeach
+            <div class="row mt-3">
+                <div class="col-md-12 text-end">
+                    @if(count($courseSD) > 2)
+                        <a href="{{ route('software') }}" class="btn btn-primary">
+                            More <i class="fa fa-angle-double-right"></i>
+                        </a>
+                    @endif
+                </div>
+            </div>
+            <div class="category-section mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="section-title position-relative mb-4 pb-2">
+                    <h2 class="mt-1">Machine Learning/Artificial Intelligence</h2>
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    @foreach ($courseMLAI as $d)
+                        @if ($d->kategori_kursus === 'ML/AI')
+                        <div class="col card-item {{ strtolower($d->kategori_berlangganan) }}">
+                            <div class="card bg-neon-red shadow-lg h-100">
+                            @if(auth()->check() && auth()->user()->role === 'admin')
+                                <div class="position-absolute top-0 end-0 m-2 d-flex">
+                                    <a href="#" class="btn btn-success btn-sm me-1 btnEditCourse" data-id="{{ $d->id }}" data-nama="{{ $d->nama_materi }}" data-kursus="{{ $d->kategori_kursus }}" data-berlangganan="{{ $d->kategori_berlangganan }}" data-link="{{ $d->link_materi }}"><i class="fa fa-edit"></i>
+                                    </a>
+                                    <form action="{{ route('course.destroy', $d->id) }}" method="POST" class="d-inline delete-form">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="button" class="btn btn-danger btn-sm delete-confirm">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                        </form>
+                                </div>
+                            @endif
+                                <div class="card-body d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 180px;">
+                                    <h4 class="card-title fw-bold">{{ $d->nama_materi }}</h4>
+                                    <a href="{{ $d->link_materi }}" class="btn btn-outline-dark rounded-pill mt-3" target="_blank" rel="noopener noreferrer">View more →</a>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12 text-end">
+                    @if(count($courseMLAI) > 2)
+                        <a href="{{ route('ml-ai') }}" class="btn btn-primary">
+                            More <i class="fa fa-angle-double-right"></i>
+                        </a>
+                    @endif
+                </div>
+            </div>
+            <div class="category-section mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="section-title position-relative mb-4 pb-2">
+                    <h2 class="mt-1">Internet of Things</h2>
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    @foreach ($courseIoT as $d)
+                        @if ($d->kategori_kursus === 'IoT')
+                        <div class="col card-item {{ strtolower($d->kategori_berlangganan) }}">
+                            <div class="card bg-neon-yellow shadow-lg h-100">
+                            @if(auth()->check() && auth()->user()->role === 'admin')
+                                <div class="position-absolute top-0 end-0 m-2 d-flex">
+                                    <a href="#" class="btn btn-success btn-sm me-1 btnEditCourse" data-id="{{ $d->id }}" data-nama="{{ $d->nama_materi }}" data-kursus="{{ $d->kategori_kursus }}" data-berlangganan="{{ $d->kategori_berlangganan }}" data-link="{{ $d->link_materi }}"><i class="fa fa-edit"></i>
+                                    </a>
+                                    <form action="{{ route('course.destroy', $d->id) }}" method="POST" class="d-inline delete-form">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="button" class="btn btn-danger btn-sm delete-confirm">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                        </form>
+                                </div>
+                            @endif
+                                <div class="card-body d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 180px;">
+                                    <h4 class="card-title fw-bold">{{ $d->nama_materi }}</h4>
+                                    <a href="{{ $d->link_materi }}" class="btn btn-outline-dark rounded-pill mt-3" target="_blank" rel="noopener noreferrer">View more →</a>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12 text-end">
+                    @if(count($courseIoT) > 2)
+                        <a href="{{ route('iot') }}" class="btn btn-primary">
+                            More <i class="fa fa-angle-double-right"></i>
+                        </a>
+                    @endif
+                </div>
+            </div>
         </div>
-
-            <!-- Add New Materi -->
-            <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="addModalLabel">Tambah Materi Baru</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="addCardForm" action="{{ route('category.store') }}" method="POST">
-                                @csrf
-                                <div class="mb-3">
-                                    <label for="namedetail" class="form-label">Name Detail</label>
-                                    <input type="text" class="form-control" id="materiName" required name="category_detail">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="materiName" class="form-label">Nama Materi</label>
-                                    <input type="text" class="form-control" id="materiName" required name="category_name">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="materiCategory" class="form-label">Kategori Materi</label>
-                                    <input type="text" class="form-control" id="materiCategory" required name="category_title">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="materiSubscription" class="form-label">Jenis Berlangganan</label>
-                                    <select class="form-select" id="materiSubscription" name="category_subscription">
-                                        <option value="Gratis">Gratis</option>
-                                        <option value="Premium">Premium</option>
-                                    </select>
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100">Tambah</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <!-- About End -->
 
         <div class="container-xxl py-5">
             <div class="container px-lg-5">
                 <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="position-relative d-inline text-primary ps-4">Our Marketplace</h6>
-                    <h2 class="mt-2">Apa yang Anda Butuhkan?</h2>
+                    <h6 class="position-relative d-inline text-primary ps-4">Our Electronic Component</h6>
+                    <h2 class="mt-2">Komponen-Komponen Elektronika</h2>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-12 text-end">
                         @if(auth()->check() && auth()->user()->role === 'admin')
-                            <a href="#" class="btn btn-primary" id="btnTambahMarketplace">
+                            <a href="#" class="btn btn-primary" id="btnTambahComponent">
                                 <i class="fa fa-plus"></i>
                             </a>
                         @endif
                     </div>
                 </div>
                 <div class="row g-3">
-                    @foreach($marketplace as $item)
+                    @foreach($component as $item)
                         <div class="col-lg-3 col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
                             <div class="card border-0 shadow rounded position-relative" style="max-width: 250px; margin: auto;">
                                 @if(auth()->check() && auth()->user()->role === 'admin')
                                     <div class="position-absolute top-0 end-0 m-2 d-flex">
-                                        <a href="#" class="btn btn-success btn-sm me-1 btnEditMarketplace" data-id="{{ $item->id }}" data-nama="{{ $item->nama_barang }}" data-harga="{{ $item->harga_barang }}" data-link="{{ $item->link_shopee }}" data-gambar="{{ asset($item->gambar) }}"><i class="fa fa-edit"></i>
+                                        <a href="#" class="btn btn-success btn-sm me-1 btnEditComponent" data-id="{{ $item->id }}" data-nama="{{ $item->nama_barang }}" data-harga="{{ $item->harga_barang }}" data-link="{{ $item->link_shopee }}" data-gambar="{{ asset($item->gambar) }}"><i class="fa fa-edit"></i>
                                         </a>
-                                        <form action="{{ route('marketplace.destroy', $item->id) }}" method="POST" class="d-inline delete-form">
+                                        <form action="{{ route('component.destroy', $item->id) }}" method="POST" class="d-inline delete-form">
                                             @csrf
                                             @method('DELETE')
                                             <button type="button" class="btn btn-danger btn-sm delete-confirm">
@@ -203,8 +265,8 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12 text-end">
-                        @if(count($marketplace) > 3)
-                            <a href="{{ route('marketplace.index') }}" class="btn btn-primary">
+                        @if(count($component) > 3)
+                            <a href="{{ route('component.index') }}" class="btn btn-primary">
                                 More <i class="fa fa-angle-double-right"></i>
                             </a>
                         @endif
@@ -222,7 +284,7 @@
             <div class="container px-lg-5">
                 <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
                     <h6 class="position-relative d-inline text-primary ps-4">Our Product</h6>
-                    <h2 class="mt-2">Produk yang Baru Diluncurkan</h2>
+                    <h2 class="mt-2">Produk Software dan Hardware</h2>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-12 text-end">
@@ -235,7 +297,7 @@
                 </div>
                 <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="col-12 text-center">
-                        <ul class="list-inline mb-5" id="portfolio-flters">
+                        <ul class="list-inline mb-5" id="product-flters">
                             <li class="btn px-3 pe-4 active" data-filter="*">All</li>
                             <li class="btn px-3 pe-4" data-filter=".first">Software</li>
                             <li class="btn px-3 pe-4" data-filter=".second">Hardware</li>
@@ -300,133 +362,16 @@
         </div>
         <!-- Portfolio End -->
 
-        <!-- Testimonial Start -->
-        <div class="container-fluid bg-primary testimonial py-5 my-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container py-5 px-lg-5">
-                <div class="owl-carousel testimonial-carousel">
-                    <div class="testimonial-item bg-transparent border rounded text-white p-4">
-                        <i class="fa fa-quote-left fa-2x mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h6 class="text-white mb-1">Client Name</h6>
-                                <small>Profession</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded text-white p-4">
-                        <i class="fa fa-quote-left fa-2x mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h6 class="text-white mb-1">Client Name</h6>
-                                <small>Profession</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded text-white p-4">
-                        <i class="fa fa-quote-left fa-2x mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h6 class="text-white mb-1">Client Name</h6>
-                                <small>Profession</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded text-white p-4">
-                        <i class="fa fa-quote-left fa-2x mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-4.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h6 class="text-white mb-1">Client Name</h6>
-                                <small>Profession</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Testimonial End -->
-
-        <!-- Team Start -->
-        <div class="container-xxl py-5">
-            <div class="container px-lg-5">
-                <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="position-relative d-inline text-primary ps-4">Our Team</h6>
-                    <h2 class="mt-2">Meet Our Team Members</h2>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="team-item">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0 d-flex flex-column align-items-center mt-4 pt-5" style="width: 75px;">
-                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-instagram"></i></a>
-                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                                <img class="img-fluid rounded w-100" src="img/team-1.jpg" alt="">
-                            </div>
-                            <div class="px-4 py-3">
-                                <h5 class="fw-bold m-0">Jhon Doe</h5>
-                                <small>CEO</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="team-item">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0 d-flex flex-column align-items-center mt-4 pt-5" style="width: 75px;">
-                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-instagram"></i></a>
-                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                                <img class="img-fluid rounded w-100" src="img/team-2.jpg" alt="">
-                            </div>
-                            <div class="px-4 py-3">
-                                <h5 class="fw-bold m-0">Emma William</h5>
-                                <small>Manager</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="team-item">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0 d-flex flex-column align-items-center mt-4 pt-5" style="width: 75px;">
-                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-instagram"></i></a>
-                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                                <img class="img-fluid rounded w-100" src="img/team-3.jpg" alt="">
-                            </div>
-                            <div class="px-4 py-3">
-                                <h5 class="fw-bold m-0">Noah Michael</h5>
-                                <small>Designer</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Team End -->
-
-        <div class="modal fade" id="modal-inputmarketplace" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="modal-inputcomponent" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Tambah Marketplace</h5>
+                        <h5 class="modal-title">Tambah Electronic Component</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ route('marketplace.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('component.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-12">
@@ -464,15 +409,15 @@
             </div>
         </div>
 
-        <div class="modal fade" id="modal-edit-marketplace" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="modal-edit-component" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Edit Marketplace</h5>
+                        <h5 class="modal-title">Edit Electronic Component</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="formEditMarketplace" action="" method="post" enctype="multipart/form-data">
+                        <form id="formEditComponent" action="" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <input type="hidden" id="edit_id" name="id">
@@ -584,18 +529,132 @@
                 </div>
             </div>
         </div>
+
+        <!-- Add New Materi -->
+        <div class="modal fade" id="modal-inputcourse" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Tambah Materi</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addCardForm" action="{{ route('course.store') }}" method="POST">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="nama_materi" class="form-label">Name Materi</label>
+                                <input type="text" class="form-control" id="nama_materi" name="nama_materi" placeholder="Nama Materi">
+                            </div>
+                            <div class="mb-3">
+                                <label for="kategori_kursus" class="form-label">Kategori Kursus</label>
+                                <select class="form-select" id="kategori_kursus" name="kategori_kursus">
+                                    <option value="" disabled selected>-- Pilih Kategori Kursus --</option>
+                                    <option value="SD">Software Development</option>
+                                    <option value="ML/AI">Machine Learning/AI</option>
+                                    <option value="IoT">Internet of Things</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="kategori_berlangganan" class="form-label">Kategori Berlangganan</label>
+                                <select class="form-select" id="kategori_berlangganan" name="kategori_berlangganan">
+                                    <option value="" disabled selected>-- Pilih Kategori Berlangganan --</option>
+                                    <option value="Free">Free</option>
+                                    <option value="Premium">Premium</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="link_materi" class="form-label">Link Materi</label>
+                                <input type="text" class="form-control" id="link_materi" name="link_materi" placeholder="Link Materi">
+                            </div>
+                                <button type="submit" class="btn btn-primary w-100">Simpan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+        <div class="modal fade" id="modal-edit-course" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Materi</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formEditCourse" action="" method="post" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" id="edit_id" name="id">
+                            <div class="mb-3">
+                                <label for="nama_materi" class="form-label">Name Materi</label>
+                                <input type="text" class="form-control" id="edit_nama_materi" name="nama_materi">
+                            </div>
+                            <div class="mb-3">
+                                <label for="kategori_kursus" class="form-label">Kategori Kursus</label>
+                                <select class="form-select" id="edit_kategori_kursus" name="kategori_kursus">
+                                    <option value="" disabled selected>-- Pilih Kategori Kursus --</option>
+                                    <option value="SD">Software Development</option>
+                                    <option value="ML/AI">Machine Learning/AI</option>
+                                    <option value="IoT">Internet of Things</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="kategori_berlangganan" class="form-label">Kategori Berlangganan</label>
+                                <select class="form-select" id="edit_kategori_berlangganan" name="kategori_berlangganan">
+                                    <option value="" disabled selected>-- Pilih Kategori Berlangganan --</option>
+                                    <option value="Free">Free</option>
+                                    <option value="Premium">Premium</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="link_materi" class="form-label">Link Materi</label>
+                                <input type="text" class="form-control" id="edit_link_materi" name="link_materi">
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-success flex-grow-1">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 @endsection
 
 @push('myscript')
     <script>
-        $(document).ready(function() {
-            // Menampilkan modal untuk menambah tipe pekerjaan
-            $("#btnTambahMarketplace").click(function() {
-                $('#modal-inputmarketplace').modal('show');
+        $(document).ready(function () {
+            $('#portfolio-flters li').click(function () {
+                // Ubah tombol aktif
+                $('#portfolio-flters li').removeClass('active');
+                $(this).addClass('active');
+
+                let filterValue = $(this).data('filter');
+
+                $('.card-item').each(function () {
+                    let item = $(this);
+
+                    if (filterValue === 'all') {
+                        item.removeClass('hide');
+                    } else {
+                        if (item.hasClass(filterValue)) {
+                            item.removeClass('hide');
+                        } else {
+                            item.addClass('hide');
+                        }
+                    }
+                });
             });
         });
 
-        $(document).on("click", ".btnEditMarketplace", function () {
+        $(document).ready(function() {
+            // Menampilkan modal untuk menambah tipe pekerjaan
+            $("#btnTambahComponent").click(function() {
+                $('#modal-inputcomponent').modal('show');
+            });
+        });
+
+        $(document).on("click", ".btnEditComponent", function () {
             let id = $(this).data("id");
             let nama = $(this).data("nama");
             let harga = $(this).data("harga");
@@ -609,9 +668,9 @@
             $("#preview_gambar").attr("src", gambar);
 
             // Set action URL pada form edit
-            $("#formEditMarketplace").attr("action", "/marketplace/update/" + id);
+            $("#formEditComponent").attr("action", "/component/update/" + id);
 
-            $("#modal-edit-marketplace").modal("show");
+            $("#modal-edit-component").modal("show");
         });
 
         $(document).on("click", ".btnEditProduct", function () {
@@ -631,6 +690,25 @@
             $("#formEditProduct").attr("action", "/product/update/" + id);
 
             $("#modal-edit-product").modal("show");
+        });
+
+        $(document).on("click", ".btnEditCourse", function () {
+            let id = $(this).data("id");
+            let nama = $(this).data("nama");
+            let kursus = $(this).data("kursus");
+            let berlangganan = $(this).data("berlangganan");
+            let link = $(this).data("link");
+
+            $("#edit_id").val(id);
+            $("#edit_nama_materi").val(nama);
+            $("#edit_kategori_kursus").val(kursus);
+            $("#edit_kategori_berlangganan").val(berlangganan);
+            $("#edit_link_materi").val(link);
+
+            // Set action URL pada form edit
+            $("#formEditCourse").attr("action", "/course/update/" + id);
+
+            $("#modal-edit-course").modal("show");
         });
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -682,6 +760,12 @@
         $(document).ready(function() {
             $("#btnTambahProduct").click(function() {
                 $('#modal-inputproduct').modal('show');
+            });
+        });
+
+        $(document).ready(function() {
+            $("#btnTambahCourse").click(function() {
+                $('#modal-inputcourse').modal('show');
             });
         });
 

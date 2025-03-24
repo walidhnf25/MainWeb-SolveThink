@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\MarketplaceController;
+use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +21,10 @@ route::middleware(['guest:user'])->group(function () {
         return view('index');
     });
 
-    Route::get('/marketplace', [MarketplaceController::class, 'index'])->name('marketplace.index');
-    Route::post('/marketplace/store', [MarketplaceController::class, 'store'])->name('marketplace.store');
-    Route::put('/marketplace/update/{id}', [MarketplaceController::class, 'update'])->name('marketplace.update');
-    Route::delete('/marketplace/destroy/{id}', [MarketplaceController::class, 'destroy'])->name('marketplace.destroy');
+    Route::get('/component', [ComponentController::class, 'index'])->name('component.index');
+    Route::post('/component/store', [ComponentController::class, 'store'])->name('component.store');
+    Route::put('/component/update/{id}', [ComponentController::class, 'update'])->name('component.update');
+    Route::delete('/component/destroy/{id}', [ComponentController::class, 'destroy'])->name('component.destroy');
 
     Route::get('/product', [ProductController::class, 'index'])->name('product.index');
     Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
@@ -36,6 +36,11 @@ route::middleware(['guest:user'])->group(function () {
     Route::post('/register', [AuthController::class, 'prosesregistrasi'])->name('prosesregistrasi');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::post('/Course', [CategoryController::class, 'store'])->name('category.store');
+    Route::get('/software', [CourseController::class, 'software'])->name('software');
+    Route::get('/ml-ai', [CourseController::class, 'mlai'])->name('ml-ai');
+    Route::get('/iot', [CourseController::class, 'iot'])->name('iot');
+    Route::post('/course', [CourseController::class, 'store'])->name('course.store');
+    Route::put('/course/update/{id}', [CourseController::class, 'update'])->name('course.update');
+    Route::delete('/course/destroy/{id}', [CourseController::class, 'destroy'])->name('course.destroy');
 
 });

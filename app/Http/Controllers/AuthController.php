@@ -4,19 +4,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\Marketplace;
+use App\Models\Component;
 use App\Models\Product;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Categories;
+use App\Models\Course;
 
 class AuthController extends Controller
 {
     public function index()
     {
-        $marketplace = Marketplace::paginate(4);
+        $component = Component::paginate(4);
         $product = Product::paginate(3);
-        $categories = Categories::all();
-        return view('index', compact('marketplace', 'product', 'categories'));
+        $courseSD = Course::where('kategori_kursus', 'SD')->paginate(6, ['*'], 'courseSD');
+        $courseMLAI = Course::where('kategori_kursus', 'ML/AI')->paginate(6, ['*'], 'courseMLAI');
+        $courseIoT = Course::where('kategori_kursus', 'IoT')->paginate(6, ['*'], 'courseIoT');
+
+        return view('index', compact('component', 'product', 'courseSD', 'courseMLAI', 'courseIoT'));
     }
 
     public function proseslogin(Request $request)
