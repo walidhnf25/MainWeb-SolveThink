@@ -20,24 +20,22 @@
                 <h5 class="text-white mb-4">Media Partner</h5>
                 <div class="row g-2">
                     <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-1.jpg" alt="Image">
+                        <div class="ratio ratio-1x1">
+                            <img class="img-fluid rounded object-fit-contain" src="img/logo-smk-telkom-bandung.png" alt="Logo Telkom">
+                        </div>
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-2.jpg" alt="Image">
+                        <div class="ratio ratio-1x1">
+                            <img class="img-fluid rounded object-fit-contain" src="img/logo-sman-dayeuhkolot-1.png" alt="Logo SMAN Dayeuhkolot">
+                        </div>
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-3.jpg" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-4.jpg" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-5.jpg" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-6.jpg" alt="Image">
+                        <div class="ratio ratio-1x1">
+                            <img class="img-fluid rounded object-fit-contain" src="img/logo2.png" alt="Logo Lainnya">
+                        </div>
                     </div>
                 </div>
+
             </div>
             <div class="col-md-6 col-lg-3">
                 <h5 class="text-white mb-4">Social Media</h5>

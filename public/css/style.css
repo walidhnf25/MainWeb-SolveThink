@@ -114,8 +114,9 @@ h6,
 
 @media (max-width: 991.98px) {
     .sticky-top.navbar-light {
-        position: relative;
-        background: #FFFFFF;
+        position: fixed;
+        background: rgba(0, 0, 0, 0.9);
+        transition: background 0.3s ease-in-out;
     }
 
     .navbar-light .navbar-collapse {
@@ -124,14 +125,11 @@ h6,
     }
 
     .navbar-light .navbar-nav .nav-link,
-    .sticky-top.navbar-light .navbar-nav .nav-link {
+    .sticky-top.navbar-light .navbar-nav .nav-link,
+    .navbar-light .navbar-brand h1 {
         padding: 10px 0;
         margin-left: 0;
-        color: var(--dark) !important;
-    }
-
-    .navbar-light .navbar-brand h1 {
-        color: var(--primary);
+        color: #FFFFFF !important;
     }
 
     .navbar-light .navbar-brand img {
@@ -151,7 +149,8 @@ h6,
 
     .sticky-top.navbar-light {
         position: fixed;
-        background: #FFFFFF;
+        background: rgba(0, 0, 0, 0.9);
+        transition: background 0.3s ease-in-out;
     }
 
     .navbar-light .navbar-nav .nav-link::before {
@@ -175,10 +174,20 @@ h6,
         display: none;
     }
 
-    .sticky-top.navbar-light .navbar-brand h1 {
-        color: var(--primary);
+    .sticky-top.navbar-light .navbar-brand h1,
+    .navbar-light .navbar-nav .nav-link,
+    .sticky-top.navbar-light .navbar-nav .nav-link {
+        color: #FFFFFF !important;
+    }
+
+    .navbar-light .navbar-nav .nav-link:hover,
+    .sticky-top.navbar-light .navbar-nav .nav-link:hover,
+    .navbar-light .navbar-nav .nav-link.active,
+    .sticky-top.navbar-light .navbar-nav .nav-link.active {
+        color: var(--secondary) !important;
     }
 }
+
 
 
 /*** Hero Header ***/
@@ -187,21 +196,24 @@ h6,
         url(../img/bg-dot.png),
         url(../img/bg-dot.png),
         url(../img/bg-round.png),
-        url(../img/bg-tree.png),
-        url(../img/bg-bottom-hero.png);
+        url(../img/bg-bottom-hero.png),
+        url(../img/bg-elect2.png);
+
     background-position:
         10px 10px,
         bottom 190px right 10px,
         left 55% top -1px,
-        left 50% bottom -1px,
-        center bottom -1px;
+        center bottom -1px,
+        center bottom;
+
     background-repeat: no-repeat;
+
     background-size:
         auto,
         auto,
         auto,
-        auto,
-        100% auto;
+        100% auto,
+        cover;
 }
 
 
@@ -528,8 +540,10 @@ h6,
 
 /*** Footer ***/
 .footer {
-    background: url(../img/footer.png) center center no-repeat;
-    background-size: contain;
+    background: #272780;
+    background-size: 200% 200%;
+    animation: gradientShift 6s ease infinite;
+    box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.3);
 }
 
 .footer .btn.btn-social {

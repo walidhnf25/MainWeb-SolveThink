@@ -3,28 +3,33 @@
     <div class="container-fluid bg-white p-0">
         <!-- Navbar & Hero Start -->
         <div class="container-fluid position-relative p-0">
-            <div class="container-fluid py-5 bg-primary hero-header mb-5">
-                <div class="container my-5 py-5 px-lg-5">
-                    <div class="row g-5 py-5">
+            <div class="container-fluid py-5 bg-primary hero-header">
+                <div class="container my-5 py-2 px-lg-5">
+                    <div class="row align-items-center">
                         <div class="col-lg-6 text-center text-lg-start">
                             <h1 class="text-white mb-4 animated zoomIn">SolveThink</h1>
-                            <p class="text-white pb-3 animated zoomIn">Tempor rebum no at dolore lorem clita rebum rebum ipsum rebum stet dolor sed justo kasd. Ut dolor sed magna dolor sea diam. Sit diam sit justo amet ipsum vero ipsum clita lorem.</p>
+                            <p class="text-white pb-3 animated zoomIn">
+                                Tempor rebum no at dolore lorem clita rebum rebum ipsum rebum stet dolor sed justo kasd. Ut dolor sed magna dolor sea diam. Sit diam sit justo amet ipsum vero ipsum clita lorem.
+                            </p>
                             <a href="" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Berlangganan</a>
                             <a href="" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a>
                         </div>
-                        <div class="col-lg-6 text-center text-lg-start">
-                            <img class="img-fluid" src="img/hero.png" alt="">
+                        <div class="col-lg-6 text-center">
+                            <img class="img-fluid animated zoomIn" src="img/robotic.png" alt=""
+                            style="max-width: 80%; height: auto; margin-top: -20px; margin-bottom: 50px;">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
         <!-- Navbar & Hero End -->
 
         <!-- About Start -->
-        <div class="container-fluid py-5">
+        <div class="container-fluid"> <!-- Kurangi padding atas bawah -->
             <div class="container px-lg-5">
-                <div class="row g-5">
+                <div class="row g-5 d-flex align-items-center">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="section-title position-relative mb-4 pb-2">
                             <h6 class="position-relative text-primary ps-4">About Us</h6>
@@ -48,12 +53,14 @@
                             <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-discord"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="img/about.jpg">
+                    <div class="col-lg-6 text-center d-flex justify-content-center align-items-center">
+                        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="img/robotic2.png" style="max-width: 90%; height: auto; margin-right: -40px;">
                     </div>
                 </div>
             </div>
         </div>
+
+
 
         <div class="container py-5">
             <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">

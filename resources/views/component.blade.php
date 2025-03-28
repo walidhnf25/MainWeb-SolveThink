@@ -1,7 +1,7 @@
 @extends('layouts.tabler')
 @section('content')
-            <div class="container-xxl py-5 bg-primary hero-header mb-5">
-                <div class="container my-5 py-5 px-lg-5">
+            <div class="container-fluid py-5 bg-primary hero-header mb-5">
+                <div class="container-fluid my-5 py-5 px-lg-5">
                     <div class="row g-5 py-5">
                         <div class="col-12 text-center">
                             <h1 class="text-white animated zoomIn">Electronic Components</h1>
@@ -183,10 +183,10 @@
             $("#edit_harga_barang").val(harga);
             $("#edit_link_shopee").val(link);
             $("#preview_gambar").attr("src", gambar);
-            
+
             // Set action URL pada form edit
             $("#formEditComponent").attr("action", "/component/update/" + id);
-            
+
             $("#modal-edit-component").modal("show");
         });
 
