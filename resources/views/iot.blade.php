@@ -1,7 +1,7 @@
 @extends('layouts.tabler')
 @section('content')
-        <div class="container-xxl py-5 bg-primary hero-header mb-5">
-            <div class="container my-5 py-5 px-lg-5">
+        <div class="container-fluid py-5 bg-primary hero-header mb-5">
+            <div class="container-fluid my-5 py-5 px-lg-5">
                 <div class="row g-5 py-5">
                     <div class="col-12 text-center">
                         <h1 class="text-white animated zoomIn">Internet of Things</h1>
