@@ -11,7 +11,7 @@
                             <p class="text-white pb-3 animated zoomIn">
                                 Tempor rebum no at dolore lorem clita rebum rebum ipsum rebum stet dolor sed justo kasd. Ut dolor sed magna dolor sea diam. Sit diam sit justo amet ipsum vero ipsum clita lorem.
                             </p>
-                            <a href="" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Berlangganan</a>
+                            <button id="subscribeButton" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Berlangganan</button>
                             <a href="" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a>
                         </div>
                         <div class="col-lg-6 text-center">
@@ -22,12 +22,52 @@
                 </div>
             </div>
         </div>
-
-
         <!-- Navbar & Hero End -->
 
+        <!-- Modal Subs -->
+        <div class="modal fade" id="subscriptionModal" tabindex="-1" aria-labelledby="subscriptionModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title w-100 text-center" id="subscriptionModalLabel">
+                            <i class="bi bi-bag"></i> Paket Berlangganan
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center gap-4">
+                            <div class="card text-start shadow-sm border-0" style="width: 18rem; border-radius: 12px;">
+                                <div class="card-header bg-primary text-white rounded-top text-center">
+                                    Free Trial
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Rp. 0/bulan</h5>
+                                    <p class="card-text text-muted mb-4">Akses seluruh materi untuk pengguna baru</p>
+                                    <div class="text-center mb-3">
+                                        <button class="btn btn-primary px-4 py-2 rounded-pill w-100" onclick="subscribe('free')">Free Trial</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card text-start shadow-sm border-0" style="width: 18rem; border-radius: 12px;">
+                                <div class="card-header bg-success text-white rounded-top text-center">
+                                    Premium
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Rp. 5.000/bulan</h5>
+                                    <p class="card-text text-muted mb-4">Akses seluruh materi untuk pengguna premium</p>
+                                    <div class="text-center mb-3">
+                                        <button class="btn btn-success px-4 py-2 rounded-pill w-100 "onclick="subscribe('premium')">Daftar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- About Start -->
-        <div class="container-fluid"> <!-- Kurangi padding atas bawah -->
+        <div class="container-fluid">
             <div class="container px-lg-5">
                 <div class="row g-5 d-flex align-items-center">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -778,5 +818,15 @@
 
         $(document).ready(function() {
     });
+
+    document.getElementById('subscribeButton').addEventListener('click', function(event) {
+        event.preventDefault();
+        var modal = new bootstrap.Modal(document.getElementById('subscriptionModal'));
+        modal.show();
+    });
+
+    function subscribe(type) {
+        alert('Anda memilih paket ' + type);
+    }
     </script>
 @endpush
