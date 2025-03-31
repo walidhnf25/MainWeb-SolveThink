@@ -70,32 +70,52 @@
 <!-- Navbar & Hero End -->
 
 <!-- Registrasi Modal -->
+<!-- Registrasi Modal -->
 <div class="modal fade" id="registrasiModal" tabindex="-1" aria-labelledby="registrasiModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 shadow-lg overflow-hidden">
             <!-- Modal Header -->
-            <div class="modal-header">
-                <h5 class="modal-title" id="registrasiModalLabel">Form Registrasi</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header text-white justify-content-center position-relative">
+                <h5 class="modal-title" id="registrasiModalLabel"><i class="bi bi-person-fill"></i> Registrasi Akun</h5>
+                <!-- Tombol X untuk Batal -->
+                <button type="button" class="btn btn-sm position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Cancel" style="background-color: transparent; border: none;">
+                    <i class="bi bi-x-lg fs-4 text-dark"></i>
+                </button>
             </div>
             <!-- Modal Body -->
-            <div class="modal-body">
+            <div class="modal-body bg-light p-4">
                 <form action="{{ route('prosesregistrasi') }}" method="POST">
                     @csrf
-                    <div class="mb-3">
+                    <div class="mb-3 position-relative">
                         <label for="namaLengkap" class="form-label">Nama Lengkap</label>
-                        <input type="text" class="form-control" id="namaLengkap" name="namaLengkap" placeholder="Masukkan nama lengkap" required>
+                        <div class="input-group">
+                            <span class="input-group-text bg-primary text-white"><i class="bi bi-person"></i></span>
+                            <input type="text" class="form-control rounded-end" id="namaLengkap" name="namaLengkap" placeholder="Masukkan nama lengkap" required>
+                        </div>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 position-relative">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email" required>
+                        <div class="input-group">
+                            <span class="input-group-text bg-primary text-white"><i class="bi bi-envelope"></i></span>
+                            <input type="email" class="form-control rounded-end" id="email" name="email" placeholder="Masukkan email" required>
+                        </div>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 position-relative">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password" required>
+                        <div class="input-group">
+                            <span class="input-group-text bg-primary text-white"><i class="bi bi-lock"></i></span>
+                            <input type="password" class="form-control rounded-end" id="password" name="password" placeholder="Masukkan password" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 position-relative">
+                        <label for="confirmPassword" class="form-label">Konfirmasi Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-primary text-white"><i class="bi bi-lock-fill"></i></span>
+                            <input type="password" class="form-control rounded-end" id="confirmPassword" name="confirmPassword" placeholder="Masukkan ulang password" required>
+                        </div>
                     </div>
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-success">Registrasi</button>
+                        <button type="submit" class="btn text-white rounded-pill btn-registrasi">Registrasi</button>
                     </div>
                 </form>
             </div>
@@ -103,30 +123,48 @@
     </div>
 </div>
 
+
+
 <!-- Login Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 shadow-lg overflow-hidden">
+            <div class="modal-header text-white justify-content-center position-relative">
+                <h5 class="modal-title mx-auto" id="loginModalLabel">
+                    <i class="bi bi-box-arrow-in-right"></i> Login
+                </h5>
+                <button type="button" class="btn btn-sm position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Cancel" style="background-color: transparent; border: none;">
+                    <i class="bi bi-x-lg fs-4 text-dark"></i>
+                </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body bg-light p-4">
                 <form action="{{ route('proseslogin') }}" method="POST">
                     @csrf
-                    <div class="mb-3">
+                    <div class="mb-3 position-relative">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email" required>
+                        <div class="input-group">
+                            <span class="input-group-text bg-primary text-white"><i class="bi bi-envelope"></i></span>
+                            <input type="email" class="form-control rounded-end" id="email" name="email" placeholder="Masukkan email" required>
+                        </div>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 position-relative">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password" required>
+                        <div class="input-group">
+                            <span class="input-group-text bg-primary text-white"><i class="bi bi-lock"></i></span>
+                            <input type="password" class="form-control rounded-end" id="password" name="password" placeholder="Masukkan password" required>
+                        </div>
                     </div>
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">Login</button>
+
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn text-white rounded-pill mb-2 btn-login" style="background: linear-gradient(90deg, #4B6CB7, #182848);">Login</button>
+
+                        <hr class="my-2">
+                        <button type="button" class="btn btn-outline-danger rounded-pill"><i class="bi bi-google"></i> Masuk dengan Google</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
