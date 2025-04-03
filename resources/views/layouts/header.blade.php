@@ -1,6 +1,6 @@
 <!-- Navbar & Hero Start -->
 <div class="container-fluid position-relative p-0">
-    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 w-100">
         <a href="{{ url('/') }}" class="navbar-brand p-0">
             <img src="{{ asset('img/st_new_1.png') }}" alt="SolveThink Logo" class="img-fluid" style="max-height: 70px;">
         </a>
