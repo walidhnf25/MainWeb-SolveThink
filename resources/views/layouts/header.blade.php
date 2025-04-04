@@ -1,6 +1,6 @@
 <!-- Navbar & Hero Start -->
 <div class="container-fluid position-relative p-0">
-    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 w-100">
         <a href="{{ url('/') }}" class="navbar-brand p-0">
             <img src="{{ asset('img/st_new_1.png') }}" alt="SolveThink Logo" class="img-fluid" style="max-height: 70px;">
         </a>
@@ -24,52 +24,26 @@
                 <a href="contact.html" class="nav-item nav-link {{ Request::is('contact*') ? 'active' : '' }}">Contact</a>
             </div>
             <button type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
-            @guest
-                <a href="#" class="btn btn-success text-light rounded-pill py-2 px-4 ms-2" data-bs-toggle="modal" data-bs-target="#registrasiModal">Daftar</a>
-            @endguest
-            <!-- If user is not logged in, show the Login button -->
             @if (Auth::guest())
                 <a href="#" class="btn btn-secondary text-light rounded-pill py-2 px-4 ms-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
             @else
             <div class="dropdown">
                 <a href="#" class="btn btn-secondary text-light rounded-pill py-1 px-3 ms-2 dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-person-circle me-2 fs-5"></i> <!-- Memperbesar ikon pengguna -->
-                    <span class="fs-6">{{ Auth::user()->name }}</span> <!-- Menampilkan nama pengguna yang sudah login -->
+                    <i class="bi bi-person-circle me-2 fs-5"></i>
+                    <span class="fs-6">{{ Auth::user()->name }}</span>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <li>
-                        <!-- Tombol logout -->
-                        <a class="dropdown-item" href="{{ route('logout') }}">
-                            Logout
-                        </a>
+                        <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                     </li>
                 </ul>
             </div>
             @endif
         </div>
     </nav>
-
-        <!-- Full Screen Search Start -->
-        <div class="modal fade" id="searchModal" tabindex="-1">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content" style="background: rgba(29, 29, 39, 0.7);">
-                    <div class="modal-header border-0">
-                        <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body d-flex align-items-center justify-content-center">
-                        <div class="input-group" style="max-width: 600px;">
-                            <input type="text" class="form-control bg-transparent border-light p-3" placeholder="Type search keyword">
-                            <button class="btn btn-light px-4"><i class="bi bi-search"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 <!-- Navbar & Hero End -->
 
-<!-- Registrasi Modal -->
 <!-- Registrasi Modal -->
 <div class="modal fade" id="registrasiModal" tabindex="-1" aria-labelledby="registrasiModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -118,10 +92,14 @@
                         <button type="submit" class="btn text-white rounded-pill btn-registrasi">Registrasi</button>
                     </div>
                 </form>
+                <div class="text-center mt-3">
+                    <p class="text-center mt-2">Sudah memiliki akun? <a href="#" id="openLoginModal">Masuk sekarang</a></p>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 
 
 
@@ -154,17 +132,48 @@
                             <input type="password" class="form-control rounded-end" id="password" name="password" placeholder="Masukkan password" required>
                         </div>
                     </div>
-
-
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn text-white rounded-pill mb-2 btn-login" style="background: linear-gradient(90deg, #4B6CB7, #182848);">Login</button>
-
                         <hr class="my-2">
                         <button type="button" class="btn btn-outline-danger rounded-pill"><i class="bi bi-google"></i> Masuk dengan Google</button>
                     </div>
                 </form>
+                <div class="text-center mt-3">
+                    <p class="text-center mt-2">Belum punya akun? <a href="#" id="openRegisterModal">Daftar sekarang</a></p>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("openRegisterModal").addEventListener("click", function () {
+        var loginModalEl = document.getElementById('loginModal');
+        var registerModalEl = document.getElementById('registrasiModal');
+
+        var loginModal = bootstrap.Modal.getInstance(loginModalEl);
+        var registerModal = new bootstrap.Modal(registerModalEl);
+
+        loginModal.hide(); // Tutup modal login
+
+        loginModalEl.addEventListener('hidden.bs.modal', function () {
+            registerModal.show(); // Tampilkan modal registrasi setelah modal login tertutup
+        }, { once: true });
+    });
+
+    document.getElementById("openLoginModal").addEventListener("click", function () {
+        var loginModalEl = document.getElementById('loginModal');
+        var registerModalEl = document.getElementById('registrasiModal');
+
+        var loginModal = new bootstrap.Modal(loginModalEl);
+        var registerModal = bootstrap.Modal.getInstance(registerModalEl);
+
+        registerModal.hide(); // Tutup modal registrasi
+
+        registerModalEl.addEventListener('hidden.bs.modal', function () {
+            loginModal.show(); // Tampilkan modal login setelah modal registrasi tertutup
+        }, { once: true });
+    });
+});
+</script>
