@@ -167,7 +167,7 @@
             </div>
             <div class="category-section mb-5 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="section-title position-relative mb-4 pb-2">
-                    <h2 class="mt-1">Machine Learning/Artificial Intelligence</h2>
+                    <h2 class="mt-1">ML AI Data Science</h2>
                 </div>
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                     @foreach ($courseMLAI as $d)

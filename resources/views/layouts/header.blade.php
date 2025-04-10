@@ -14,7 +14,7 @@
                     <a href="#" class="nav-link dropdown-toggle {{ Request::is('software*') || Request::is('ml-ai*') || Request::is('iot*') ? 'active' : '' }}" data-bs-toggle="dropdown">E-Learning</a>
                     <div class="dropdown-menu m-0">
                         <a href="{{ route('software') }}" class="dropdown-item {{ Request::is('software*') ? 'active' : '' }}">Software Development</a>
-                        <a href="{{ route('ml-ai') }}" class="dropdown-item {{ Request::is('ml-ai*') ? 'active' : '' }}">Machine Learning/Artificial Intelligence</a>
+                        <a href="{{ route('ml-ai') }}" class="dropdown-item {{ Request::is('ml-ai*') ? 'active' : '' }}">ML AI Data Science</a>
                         <a href="{{ route('iot') }}" class="dropdown-item {{ Request::is('iot*') ? 'active' : '' }}">Internet of Things</a>
                     </div>
                 </div>
