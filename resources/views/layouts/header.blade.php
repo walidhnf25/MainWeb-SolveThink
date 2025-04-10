@@ -11,15 +11,15 @@
             <div class="navbar-nav ms-auto py-0">
                 <a href="{{ route('index') }}" class="nav-item nav-link {{ Request::routeIs('index') ? 'active' : '' }}">Home</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle {{ Request::is('software*') || Request::is('ml-ai*') || Request::is('iot*') ? 'active' : '' }}" data-bs-toggle="dropdown">Courses</a>
+                    <a href="#" class="nav-link dropdown-toggle {{ Request::is('software*') || Request::is('ml-ai*') || Request::is('iot*') ? 'active' : '' }}" data-bs-toggle="dropdown">E-Learning</a>
                     <div class="dropdown-menu m-0">
                         <a href="{{ route('software') }}" class="dropdown-item {{ Request::is('software*') ? 'active' : '' }}">Software Development</a>
                         <a href="{{ route('ml-ai') }}" class="dropdown-item {{ Request::is('ml-ai*') ? 'active' : '' }}">Machine Learning/Artificial Intelligence</a>
                         <a href="{{ route('iot') }}" class="dropdown-item {{ Request::is('iot*') ? 'active' : '' }}">Internet of Things</a>
                     </div>
                 </div>
-                <a href="{{ route('component.index') }}" class="nav-item nav-link {{ Request::routeIs('component.index') ? 'active' : '' }}">Electronic Components</a>
-                <a href="{{ route('product.index') }}" class="nav-item nav-link {{ Request::is('product*') ? 'active' : '' }}">Products</a>
+                <a href="{{ route('component.index') }}" class="nav-item nav-link {{ Request::routeIs('component.index') ? 'active' : '' }}">Electronic Component</a>
+                <a href="{{ route('product.index') }}" class="nav-item nav-link {{ Request::is('product*') ? 'active' : '' }}">Product</a>
                 <a href="about.html" class="nav-item nav-link {{ Request::is('about*') ? 'active' : '' }}">About</a>
                 <a href="contact.html" class="nav-item nav-link {{ Request::is('contact*') ? 'active' : '' }}">Contact</a>
             </div>
@@ -93,7 +93,7 @@
                     </div>
                 </form>
                 <div class="text-center mt-3">
-                    <p class="text-center mt-2">Sudah memiliki akun? <a href="#" id="openLoginModal">Masuk sekarang</a></p>
+                    <p class="text-center mt-2">Sudah memiliki akun? <a href="#" id="openLoginModal">Masuk</a></p>
                 </div>
             </div>
         </div>
