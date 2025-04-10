@@ -4,7 +4,7 @@
             <div class="container-fluid my-5 py-5 px-lg-5">
                 <div class="row g-5 py-5">
                     <div class="col-12 text-center">
-                        <h1 class="text-white animated zoomIn">Machine Learning/Artificial Intelligence</h1>
+                        <h1 class="text-white animated zoomIn">ML AI Data Science</h1>
                         <hr class="bg-white mx-auto mt-0" style="width: 90px;">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
