@@ -44,7 +44,7 @@
                                     <h5 class="card-title mb-3">Rp. 0/bulan</h5>
                                     <p class="card-text text-muted mb-4">Akses seluruh materi dalam E-Learning untuk pengguna baru</p>
                                     <div class="text-center mb-3">
-                                        <button class="btn-custom-free-trial px-4 py-2 rounded-pill w-100" 
+                                        <button class="btn btn-free btn-primary px-4 py-2 rounded-pill w-100" 
                                             @if(Auth::check() && (Auth::user()->tgl_berlangganan == null || Auth::user()->tgl_berlangganan == '0000-00-00')) 
                                                 onclick="berlangganan()"
                                             @else 
@@ -63,7 +63,7 @@
                                     <h5 class="card-title mb-3">Rp. 5.000/bulan</h5>
                                     <p class="card-text text-muted mb-4">Akses seluruh materi dalam E-Learning untuk pengguna premium</p>
                                     <div class="text-center mb-3">
-                                        <button class="btn-custom-daftar px-4 py-2 rounded-pill w-100" disabled>Daftar</button>
+                                        <button class="btn btn-premium btn-secondary px-4 py-2 rounded-pill w-100" disabled>Daftar</button>
                                     </div>
                                 </div>
                             </div>
@@ -893,14 +893,14 @@
     }
 
     // Menambahkan event listener untuk tombol "Free Trial"
-    document.querySelectorAll('.btn-custom-free-trial').forEach(button => {
+    document.querySelectorAll('.btn-free').forEach(button => {
         button.addEventListener('click', () => {
             subscribe();
         });
     });
 
     // Menambahkan event listener untuk tombol "Daftar"
-    document.querySelectorAll('.btn-custom-daftar').forEach(button => {
+    document.querySelectorAll('.btn-premium').forEach(button => {
         button.addEventListener('click', () => {
             // Tambahkan fungsi yang sesuai jika diperlukan
         });
