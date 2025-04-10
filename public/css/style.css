@@ -6,6 +6,29 @@
     --dark: #1D1D27;
 }
 
+/* Tombol Free Trial */
+.btn-custom-free-trial {
+    background-color: #2124B1; /* Warna utama */
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease; /* Efek transisi saat hover */
+}
+
+.btn-custom-free-trial:hover {
+    background-color: #1a1f8c; /* Variasi warna utama saat hover */
+}
+
+/* Tombol Daftar */
+.btn-custom-daftar {
+    background-color: #4777F5; /* Warna utama */
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease; /* Efek transisi saat hover */
+}
+
+.btn-custom-daftar:hover {
+    background-color: #3f66cc; /* Variasi warna utama saat hover */
+}
 
 /*** Spinner ***/
 #spinner {
