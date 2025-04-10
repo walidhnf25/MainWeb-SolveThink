@@ -10,7 +10,7 @@
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
                                 <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                                <li class="breadcrumb-item text-white active" aria-current="page">ML/AI</li>
+                                <li class="breadcrumb-item text-white active" aria-current="page">ML AI Data Science</li>
                             </ol>
                         </nav>
                     </div>
