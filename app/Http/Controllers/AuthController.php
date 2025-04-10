@@ -30,7 +30,7 @@ class AuthController extends Controller
             return redirect()->intended('/');
         }
 
-        return redirect('/dashboard')->with('warning', 'Email atau Password salah!');
+        return redirect('/')->with('warning', 'Email atau Password salah!');
     }
 
     public function prosesregistrasi(Request $request)
