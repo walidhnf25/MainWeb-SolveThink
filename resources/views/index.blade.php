@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title mb-3">Rp. 0/bulan</h5>
-                                    <p class="card-text text-muted mb-4">Akses seluruh materi untuk pengguna baru</p>
+                                    <p class="card-text text-muted mb-4">Akses seluruh materi dalam E-Learning untuk pengguna baru</p>
                                     <div class="text-center mb-3">
                                         <button class="btn btn-primary px-4 py-2 rounded-pill w-100" onclick="subscribe('free')">Free Trial</button>
                                     </div>
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title mb-3">Rp. 5.000/bulan</h5>
-                                    <p class="card-text text-muted mb-4">Akses seluruh materi untuk pengguna premium</p>
+                                    <p class="card-text text-muted mb-4">Akses seluruh materi dalam E-Learning untuk pengguna premium</p>
                                     <div class="text-center mb-3">
                                         <button class="btn btn-success px-4 py-2 rounded-pill w-100 "onclick="subscribe('premium')">Daftar</button>
                                     </div>
