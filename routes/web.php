@@ -34,6 +34,7 @@ route::middleware(['guest:user'])->group(function () {
     Route::get('/', [AuthController::class, 'index'])->name('index');
     Route::post('/login', [AuthController::class, 'proseslogin'])->name('proseslogin');
     Route::post('/register', [AuthController::class, 'prosesregistrasi'])->name('prosesregistrasi');
+    Route::post('/update-subscription', [AuthController::class, 'updateSubscription']);
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('/software', [CourseController::class, 'software'])->name('software');

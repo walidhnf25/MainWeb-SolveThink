@@ -10,9 +10,9 @@
             </div>
             <div class="col-md-6 col-lg-3">
                 <h5 class="text-white mb-4">Popular Link</h5>
-                <a class="btn btn-link" href="">Courses</a>
-                <a class="btn btn-link" href="">Electronic Components</a>
-                <a class="btn btn-link" href="">Products</a>
+                <a class="btn btn-link" href="">E-Learning</a>
+                <a class="btn btn-link" href="">Electronic Component</a>
+                <!-- <a class="btn btn-link" href="">Product</a> -->
                 <a class="btn btn-link" href="">About</a>
                 <a class="btn btn-link" href="">Contact</a>
             </div>
