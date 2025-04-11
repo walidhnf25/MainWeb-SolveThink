@@ -118,7 +118,27 @@
                     <i class="fa fa-plus"></i>
                 </a>
             </div>
+            <div class="alert alert-success alert-dismissible fade" id="successAlert" role="alert" style="display: none;">
+                <strong>Berhasil!</strong> Materi pembelajaran berhasil ditambahkan.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
             @endif
+
+            <div id="customAlert" class="custom-alert" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="alertTitle">
+                <div class="custom-alert-content">
+                    <div class="alert-icon">
+                        <div class="checkmark">&#10004;</div>
+                    </div>
+                    <div class="alert-message">
+                        <h4 id="alertTitle">Sukses!</h4>
+                        <p id="alertMessage">Data berhasil disimpan.</p>
+                    </div>
+                    <div class="alert-actions">
+                        <button type="button" class="btn-confirm" onclick="closeAlert()">OK</button>
+                    </div>
+                </div>
+            </div>
+
             <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="col-12 text-center">
                     <ul class="list-inline mb-5" id="portfolio-flters">
@@ -448,7 +468,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group d-flex justify-content-center">
-                                                <button type="submit" class="btn btn-primary flex-grow-1">Simpan</button>
+                                                <button type="button" class="btn btn-primary flex-grow-1" onclick="handleComponentSubmit(this)">Simpan</button>
                                             </div>
                                         </div>
                                     </div>
@@ -532,7 +552,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group d-flex justify-content-center">
-                                                <button type="submit" class="btn btn-primary flex-grow-1">Simpan</button>
+                                                <button type="button" class="btn btn-primary flex-grow-1" onclick="handleProductSubmit(this)">Simpan</button>
                                             </div>
                                         </div>
                                     </div>
@@ -892,6 +912,279 @@
         .catch(error => console.error('Error:', error));
     }
 
+    document.addEventListener('DOMContentLoaded', function() {
+        // Assuming you have a function that handles course creation
+        // After the course is successfully created, show the alert:
+
+        function showSuccessAlert() {
+            const alert = document.getElementById('successAlert');
+            alert.style.display = 'block';
+            alert.classList.add('show');
+
+            // Auto hide after 5 seconds
+            setTimeout(function() {
+                alert.classList.remove('show');
+                setTimeout(function() {
+                    alert.style.display = 'none';
+                }, 150);
+            }, 5000);
+        }
+    }
+)
+
+function showAlert(message = "Data berhasil disimpan.") {
+    const alertElement = document.getElementById('customAlert');
+    const messageElement = document.getElementById('alertMessage');
+
+    if (alertElement && messageElement) {
+        messageElement.textContent = message;
+        alertElement.style.display = 'flex';
+
+        // Trigger reflow for animation to work properly
+        alertElement.offsetWidth;
+
+        // Add show class to start animations
+        alertElement.classList.add('show');
+
+        console.log('Alert displayed:', message);
+    } else {
+        console.error('Alert elements not found');
+    }
+}
+
+function closeAlert() {
+    const alertElement = document.getElementById('customAlert');
+    if (alertElement) {
+        // Remove show class first to trigger animations
+        alertElement.classList.remove('show');
+
+        // Wait for animations to complete before hiding
+        setTimeout(() => {
+            alertElement.style.display = 'none';
+        }, 300); // Match with CSS transition time
+    }
+}
+
+// Handle course form submissions
+document.addEventListener('DOMContentLoaded', function() {
+    // Target both add and edit forms
+    const addCourseForm = document.getElementById('formTambahCourse');
+    const editCourseForm = document.getElementById('formEditCourse');
+
+    // Function to intercept form submissions
+    const interceptSubmit = function(e) {
+        e.preventDefault();
+
+        // Get the form
+        const form = e.target;
+
+        // Show the alert
+        showAlert("Materi pembelajaran berhasil disimpan");
+
+        // Submit the form after a delay
+        setTimeout(function() {
+            form.submit();
+        }, 2000);
+    };
+
+    // Add event listeners to both forms
+    if (addCourseForm) {
+        addCourseForm.addEventListener('submit', interceptSubmit);
+        console.log('Add course form handler attached');
+    }
+
+    if (editCourseForm) {
+        editCourseForm.addEventListener('submit', interceptSubmit);
+        console.log('Edit course form handler attached');
+    }
+
+    // Also attach to any form with course-related classes
+    const possibleForms = document.querySelectorAll('form.course-form, form[action*="course"]');
+    possibleForms.forEach(form => {
+        form.addEventListener('submit', interceptSubmit);
+        console.log('Handler attached to form:', form);
+    });
+});
+
+function handleComponentSubmit(button) {
+    // Get the form
+    const form = button.closest('form');
+    if (!form) {
+        console.error('Form not found');
+        return;
+    }
+
+    // Basic validation
+    const namaBarang = form.querySelector('#nama_barang').value;
+    const hargaBarang = form.querySelector('#harga_barang').value;
+
+    if (!namaBarang || !hargaBarang) {
+        alert('Nama barang dan harga harus diisi.');
+        return;
+    }
+
+    // Show the custom alert
+    showComponentAlert("Component berhasil disimpan");
+
+    // Submit the form after a delay
+    setTimeout(() => {
+        form.submit();
+    }, 2000);
+}
+
+// Function to show component alert
+function showComponentAlert(message) {
+    // Check if alert element already exists
+    let alertElement = document.getElementById('componentAlert');
+
+    // If it doesn't exist, create it
+    if (!alertElement) {
+        alertElement = document.createElement('div');
+        alertElement.id = 'componentAlert';
+        alertElement.className = 'custom-alert';
+        alertElement.setAttribute('role', 'dialog');
+        alertElement.setAttribute('aria-modal', 'true');
+
+        alertElement.innerHTML = `
+            <div class="custom-alert-content">
+                <div class="alert-icon">
+                    <div class="checkmark">&#10004;</div>
+                </div>
+                <div class="alert-message">
+                    <h4>Sukses!</h4>
+                    <p id="componentAlertMessage">${message}</p>
+                </div>
+                <div class="alert-actions">
+                    <button type="button" class="btn-confirm" onclick="closeComponentAlert()">OK</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(alertElement);
+    } else {
+        // Update message if alert exists
+        document.getElementById('componentAlertMessage').textContent = message;
+    }
+
+    // Close the modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById('modal-inputcomponent'));
+    if (modal) {
+        modal.hide();
+    }
+
+    // Show the alert with animation
+    alertElement.style.display = 'flex';
+
+    // Force reflow for animation to work
+    void alertElement.offsetWidth;
+
+    // Add show class for animation
+    alertElement.classList.add('show');
+}
+
+// Function to close component alert
+function closeComponentAlert() {
+    const alertElement = document.getElementById('componentAlert');
+    if (alertElement) {
+        // Remove show class first to trigger animation
+        alertElement.classList.remove('show');
+
+        // Hide after animation completes
+        setTimeout(() => {
+            alertElement.style.display = 'none';
+        }, 300);
+    }
+}
+
+function handleProductSubmit(button) {
+    // Get the form
+    const form = button.closest('form');
+    if (!form) {
+        console.error('Product form not found');
+        return;
+    }
+
+    // Basic validation
+    const namaProduk = form.querySelector('#nama_produk').value;
+    const hargaProduk = form.querySelector('#harga_produk').value;
+
+    if (!namaProduk || !hargaProduk) {
+        alert('Nama produk dan harga harus diisi.');
+        return;
+    }
+
+    // Show the custom alert
+    showProductAlert("Produk berhasil disimpan");
+
+    // Submit the form after a delay
+    setTimeout(() => {
+        form.submit();
+    }, 2000);
+}
+
+// Function to show product alert
+function showProductAlert(message) {
+    // Check if alert element already exists
+    let alertElement = document.getElementById('productAlert');
+
+    // If it doesn't exist, create it
+    if (!alertElement) {
+        alertElement = document.createElement('div');
+        alertElement.id = 'productAlert';
+        alertElement.className = 'custom-alert';
+        alertElement.setAttribute('role', 'dialog');
+        alertElement.setAttribute('aria-modal', 'true');
+
+        alertElement.innerHTML = `
+            <div class="custom-alert-content">
+                <div class="alert-icon">
+                    <div class="checkmark">&#10004;</div>
+                </div>
+                <div class="alert-message">
+                    <h4>Sukses!</h4>
+                    <p id="productAlertMessage">${message}</p>
+                </div>
+                <div class="alert-actions">
+                    <button type="button" class="btn-confirm" onclick="closeProductAlert()">OK</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(alertElement);
+    } else {
+        // Update message if alert exists
+        document.getElementById('productAlertMessage').textContent = message;
+    }
+
+    // Close the modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById('modal-inputproduct'));
+    if (modal) {
+        modal.hide();
+    }
+
+    // Show the alert with animation
+    alertElement.style.display = 'flex';
+
+    // Force reflow for animation to work
+    void alertElement.offsetWidth;
+
+    // Add show class for animation
+    alertElement.classList.add('show');
+}
+
+// Function to close product alert
+function closeProductAlert() {
+    const alertElement = document.getElementById('productAlert');
+    if (alertElement) {
+        // Remove show class first to trigger animation
+        alertElement.classList.remove('show');
+
+        // Hide after animation completes
+        setTimeout(() => {
+            alertElement.style.display = 'none';
+        }, 300);
+    }
+}
     // Menambahkan event listener untuk tombol "Free Trial"
     document.querySelectorAll('.btn-free').forEach(button => {
         button.addEventListener('click', () => {
@@ -905,6 +1198,5 @@
             // Tambahkan fungsi yang sesuai jika diperlukan
         });
     });
-
     </script>
 @endpush
