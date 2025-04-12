@@ -44,10 +44,10 @@
                                     <h5 class="card-title mb-3">Rp. 0/bulan</h5>
                                     <p class="card-text text-muted mb-4">Akses seluruh materi dalam E-Learning untuk pengguna baru</p>
                                     <div class="text-center mb-3">
-                                        <button class="btn btn-free btn-primary px-4 py-2 rounded-pill w-100" 
-                                            @if(Auth::check() && (Auth::user()->tgl_berlangganan == null || Auth::user()->tgl_berlangganan == '0000-00-00')) 
+                                        <button class="btn btn-free btn-primary px-4 py-2 rounded-pill w-100"
+                                            @if(Auth::check() && (Auth::user()->tgl_berlangganan == null || Auth::user()->tgl_berlangganan == '0000-00-00'))
                                                 onclick="berlangganan()"
-                                            @else 
+                                            @else
                                                 disabled
                                             @endif>
                                             Free Trial
@@ -468,7 +468,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary flex-grow-1" onclick="handleComponentSubmit(this)">Simpan</button>
+                                                <button type="Submit" class="btn btn-primary flex-grow-1">Simpan</button>
                                             </div>
                                         </div>
                                     </div>
@@ -552,7 +552,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary flex-grow-1" onclick="handleProductSubmit(this)">Simpan</button>
+                                                <button type="Submit" class="btn btn-primary flex-grow-1">Simpan</button>
                                             </div>
                                         </div>
                                     </div>
@@ -691,6 +691,36 @@
             </div>
         </div>
 @endsection
+
+@if (session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: '{{ session('success') }}',
+        });
+    </script>
+@endif
+
+@if (session('warning'))
+    <script>
+        Swal.fire({
+            icon: 'warning',
+            title: 'Gagal',
+            text: '{{ session('warning') }}',
+        });
+    </script>
+@endif
+
+@if ($errors->any())
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Validasi Gagal',
+            html: `{!! implode('<br>', $errors->all()) !!}`
+        });
+    </script>
+@endif
 
 @push('myscript')
     <script>
@@ -1185,18 +1215,5 @@ function closeProductAlert() {
         }, 300);
     }
 }
-    // Menambahkan event listener untuk tombol "Free Trial"
-    document.querySelectorAll('.btn-free').forEach(button => {
-        button.addEventListener('click', () => {
-            subscribe();
-        });
-    });
-
-    // Menambahkan event listener untuk tombol "Daftar"
-    document.querySelectorAll('.btn-premium').forEach(button => {
-        button.addEventListener('click', () => {
-            // Tambahkan fungsi yang sesuai jika diperlukan
-        });
-    });
     </script>
 @endpush
