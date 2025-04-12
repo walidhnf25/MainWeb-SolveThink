@@ -8,6 +8,7 @@ use App\Models\Component;
 use App\Models\Product;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Course;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -75,6 +76,22 @@ class AuthController extends Controller
     }
 }
 
+
+    public function updateSubscription(Request $request)
+    {
+        // Validate input
+        $validated = $request->validate([
+            'tgl_berlangganan' => 'required|date',
+        ]);
+
+        // Get the currently authenticated user
+        $user = auth()->user(); // Ensure the user is logged in
+
+        $user->tgl_berlangganan = Carbon::parse($validated['tgl_berlangganan']);
+        $user->save();
+
+        return response()->json(['success' => true]);
+    }
 
     public function logout()
     {
