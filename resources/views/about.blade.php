@@ -96,7 +96,7 @@
                                 <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-4" style="width: 60px; height: 60px;">
                                     <i class="fa fa-graduation-cap fa-lg text-white"></i>
                                 </div>
-                                <h5 class="mb-0">Educational Resources</h5>
+                                <h5 class="mb-0">Bimbingan Belajar</h5>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -104,7 +104,7 @@
                                 <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-4" style="width: 60px; height: 60px;">
                                     <i class="fa fa-microchip fa-lg text-white"></i>
                                 </div>
-                                <h5 class="mb-0">Electronic Components</h5>
+                                <h5 class="mb-0">Materi Pembelajaran</h5>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -112,15 +112,7 @@
                                 <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-4" style="width: 60px; height: 60px;">
                                     <i class="fa fa-code fa-lg text-white"></i>
                                 </div>
-                                <h5 class="mb-0">Software Products</h5>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="d-flex align-items-center p-4 rounded shadow-sm bg-white h-100 feature-card">
-                                <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-4" style="width: 60px; height: 60px;">
-                                    <i class="fa fa-laptop fa-lg text-white"></i>
-                                </div>
-                                <h5 class="mb-0">Hardware Products</h5>
+                                <h5 class="mb-0">Electronic Component</h5>
                             </div>
                         </div>
                     </div>
