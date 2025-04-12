@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <a href="{{ route('component.index') }}" class="nav-item nav-link {{ Request::routeIs('component.index') ? 'active' : '' }}">Electronic Component</a>
-                <a href="{{ route('product.index') }}" class="nav-item nav-link {{ Request::is('product*') ? 'active' : '' }}">Product</a>
+                <!-- <a href="{{ route('product.index') }}" class="nav-item nav-link {{ Request::is('product*') ? 'active' : '' }}">Product</a> -->
                 <a href="{{ route('about.index') }}" class="nav-item nav-link {{ Request::is('about*') ? 'active' : '' }}">About</a>
                 <a href="contact.html" class="nav-item nav-link {{ Request::is('contact*') ? 'active' : '' }}">Contact</a>
             </div>
