@@ -17,22 +17,23 @@ class ProductController extends Controller
     }
 
     public function store(Request $request)
-    {
-        // Validasi input
-        $request->validate([
-            'nama_produk' => 'required|string|max:255',
-            'harga_produk' => 'required|numeric|min:0',
-            'link_shopee' => 'nullable|url',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+{
+    // Validasi input
+    $request->validate([
+        'nama_produk' => 'required|string|max:255',
+        'harga_produk' => 'required|numeric|min:0',
+        'link_shopee' => 'nullable|url',
+        'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
 
+    try {
         // Simpan file gambar jika ada
         $gambarPath = null;
         if ($request->hasFile('gambar')) {
             $gambar = $request->file('gambar');
-            $gambarNama = time() . '_' . $gambar->getClientOriginalName(); // Buat nama unik
-            $gambar->move(public_path('product-images'), $gambarNama); // Simpan ke public
-            $gambarPath = 'product-images/' . $gambarNama; // Simpan path ke database
+            $gambarNama = time() . '_' . $gambar->getClientOriginalName();
+            $gambar->move(public_path('product-images'), $gambarNama);
+            $gambarPath = 'product-images/' . $gambarNama;
         }
 
         // Simpan data ke database
@@ -43,9 +44,13 @@ class ProductController extends Controller
             'gambar' => $gambarPath,
         ]);
 
-        // Redirect ke halaman tertentu dengan pesan sukses
-        return redirect()->back()->with('success', 'Product berhasil ditambahkan!');
+        // Sukses
+        return redirect()->back()->with('success', 'Produk berhasil ditambahkan!');
+    } catch (\Exception $e) {
+        // Gagal simpan
+        return redirect()->back()->with('warning', 'Gagal menambahkan produk. Silakan coba lagi.');
     }
+}
 
     public function update(Request $request, $id)
     {

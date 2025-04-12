@@ -1,4 +1,5 @@
 <!-- Navbar & Hero Start -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <div class="container-fluid position-relative p-0">
     <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 w-100">
         <a href="{{ url('/') }}" class="navbar-brand p-0">
@@ -20,7 +21,7 @@
                 </div>
                 <a href="{{ route('component.index') }}" class="nav-item nav-link {{ Request::routeIs('component.index') ? 'active' : '' }}">Electronic Component</a>
                 <a href="{{ route('product.index') }}" class="nav-item nav-link {{ Request::is('product*') ? 'active' : '' }}">Product</a>
-                <a href="about.html" class="nav-item nav-link {{ Request::is('about*') ? 'active' : '' }}">About</a>
+                <a href="{{ route('about.index') }}" class="nav-item nav-link {{ Request::is('about*') ? 'active' : '' }}">About</a>
                 <a href="contact.html" class="nav-item nav-link {{ Request::is('contact*') ? 'active' : '' }}">Contact</a>
             </div>
             <button type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
@@ -89,7 +90,7 @@
                         </div>
                     </div>
                     <div class="d-grid">
-                        <button type="button" class="btn text-white rounded-pill btn-registrasi" onclick="handleRegistration(event)">Registrasi</button>
+                        <button type="submit" class="btn text-white rounded-pill btn-registrasi">Registrasi</button>
                     </div>
                 </form>
                 <div class="text-center mt-3">
@@ -137,9 +138,8 @@
                         </div>
                     </div>
                     <div class="d-grid gap-2">
-                        <button type="button" class="btn text-white rounded-pill mb-2 btn-login"
-                        style="background: linear-gradient(90deg, #4B6CB7, #182848);"
-                        onclick="handleLogin(event)">Login</button>
+                        <button type="submit" class="btn text-white rounded-pill mb-2 btn-login"
+                        style="background: linear-gradient(90deg, #4B6CB7, #182848);">Login</button>
                         <hr class="my-2">
                         <button type="button" class="btn btn-outline-danger rounded-pill"><i class="bi bi-google"></i> Masuk dengan Google</button>
                     </div>
@@ -152,36 +152,38 @@
     </div>
 </div>
 
-<div id="loginSuccessAlert" class="custom-alert" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="loginAlertTitle">
-    <div class="custom-alert-content">
-        <div class="alert-icon">
-            <div class="checkmark">&#10004;</div>
-        </div>
-        <div class="alert-message">
-            <h4 id="loginAlertTitle">Login Berhasil!</h4>
-            <p id="loginSuccessMessage">Anda berhasil login. Mengalihkan...</p>
-        </div>
-        <div class="alert-actions">
-            <button type="button" class="btn-confirm" onclick="closeLoginAlert()">OK</button>
-        </div>
-    </div>
-</div>
+@if (session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: '{{ session('success') }}',
+        });
+    </script>
+@endif
 
-<!-- Failed Login Alert -->
-<div id="loginFailedAlert" class="custom-alert" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="loginFailedAlertTitle">
-    <div class="custom-alert-content error">
-        <div class="alert-icon error">
-            <div class="error-mark">&#10008;</div>
-        </div>
-        <div class="alert-message">
-            <h4 id="loginFailedAlertTitle">Login Gagal!</h4>
-            <p id="loginFailedMessage">Email atau password yang Anda masukkan salah.</p>
-        </div>
-        <div class="alert-actions">
-            <button type="button" class="btn-confirm error" onclick="closeLoginFailedAlert()">OK</button>
-        </div>
-    </div>
-</div>
+@if (session('warning'))
+    <script>
+        Swal.fire({
+            icon: 'warning',
+            title: 'Gagal',
+            text: '{{ session('warning') }}',
+        });
+    </script>
+@endif
+
+{{-- Validasi gagal dari Laravel --}}
+@if ($errors->any())
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Registrasi Gagal',
+            html: `{!! implode('<br>', $errors->all()) !!}`
+        });
+    </script>
+@endif
+
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -214,315 +216,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Alert Login Sukses dan Failed
-function createLoginAlerts() {
-    if (!document.getElementById('loginSuccessAlert')) {
-        const successDiv = document.createElement('div');
-        successDiv.id = 'loginSuccessAlert';
-        successDiv.className = 'custom-alert';
-        successDiv.style.display = 'none';
-        successDiv.setAttribute('role', 'dialog');
-        successDiv.setAttribute('aria-modal', 'true');
-        document.body.appendChild(successDiv);
-    }
-
-    if (!document.getElementById('loginFailedAlert')) {
-        const failedDiv = document.createElement('div');
-        failedDiv.id = 'loginFailedAlert';
-        failedDiv.className = 'custom-alert';
-        failedDiv.style.display = 'none';
-        failedDiv.setAttribute('role', 'dialog');
-        failedDiv.setAttribute('aria-modal', 'true');
-        document.body.appendChild(failedDiv);
-    }
-
-    // Add CSS for the error styling if it doesn't exist
-    if (!document.getElementById('loginAlertStyles')) {
-        const styleSheet = document.createElement('style');
-        styleSheet.id = 'loginAlertStyles';
-        document.head.appendChild(styleSheet);
-    }
-}
-
-function handleLogin(event) {
-    event.preventDefault();
-    console.log('Login button clicked');
-
-    const form = event.target.closest('form');
-    if (!form) {
-        console.error('Form not found');
-        return;
-    }
-
-    const email = form.querySelector('input[name="email"]').value;
-    const password = form.querySelector('input[name="password"]').value;
-
-    if (!email || !password) {
-        showLoginAlert('failed', 'Email dan password tidak boleh kosong');
-        return;
-    }
 
 
-    createLoginAlerts();
-    // dummy data
-    if (email === "admin@gmail.com" && password === "123456") {
-
-        showLoginAlert('success');
-
-        setTimeout(() => {
-            form.submit();
-        }, 2000);
-    } else {
-
-        showLoginAlert('failed', 'Email atau password yang Anda masukkan salah.');
-    }
-}
-
-let failedLoginAttempts = 0;
-
-function showLoginAlert(type, message = null) {
-    const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
-
-    // Only hide the login modal if it's a success alert
-    if (loginModal && type === 'success') {
-        loginModal.hide();
-        // Reset counter on success
-        failedLoginAttempts = 0;
-    }
-
-    // Increment counter on failure
-    if (type === 'failed') {
-        failedLoginAttempts++;
-    }
-
-    const alertId = type === 'success' ? 'loginSuccessAlert' : 'loginFailedAlert';
-    const alertElement = document.getElementById(alertId);
-
-    if (!alertElement) {
-        console.error(`${alertId} element not found!`);
-        return;
-    }
-
-    if (message) {
-        const messageId = type === 'success' ? 'loginSuccessMessage' : 'loginFailedMessage';
-        const messageElement = document.getElementById(messageId);
-        if (messageElement) {
-            messageElement.textContent = message;
-        }
-    }
-
-    alertElement.style.display = 'flex';
-    alertElement.style.zIndex = '9999';
-
-    void alertElement.offsetWidth;
-
-    alertElement.classList.add('show');
-    console.log(`${type} login alert shown`);
-
-    // For failed login, reopen the login modal after showing the alert
-    if (type === 'failed') {
-        // Calculate background darkness based on failed attempts (max 0.9 opacity)
-        const opacity = Math.min(0.5 + (failedLoginAttempts * 0.1), 0.9);
-        console.log(`Failed login attempt ${failedLoginAttempts}, setting opacity to ${opacity}`);
-
-        setTimeout(() => {
-            closeLoginAlert('failed');
-
-            // Reopen the login modal with darker overlay
-            const loginModal = document.getElementById('loginModal');
-            if (loginModal) {
-                // Show the modal
-                const modal = new bootstrap.Modal(loginModal);
-                modal.show();
-
-                // Make the backdrop darker based on failed attempts
-                setTimeout(() => {
-                    const backdrops = document.querySelectorAll('.modal-backdrop');
-                    // Get the most recently added backdrop (last in the collection)
-                    if (backdrops && backdrops.length > 0) {
-                        const backdrop = backdrops[backdrops.length - 1];
-                        backdrop.style.opacity = opacity;
-                        backdrop.style.transition = 'opacity 0.3s ease';
-                    } else {
-                        console.error('Modal backdrop not found');
-                    }
-                }, 50); // Reduced delay for better user experience
-            }
-        }, 1500); // Reduced to 1.5 seconds for better user experience
-    } else if (type === 'success') {
-        // Reset counter on success
-        failedLoginAttempts = 0;
-        console.log('Login successful, reset failed attempts counter');
-    }
-}
-
-
-function closeLoginAlert(type) {
-    const alertId = type === 'success' ? 'loginSuccessAlert' : 'loginFailedAlert';
-    const alertElement = document.getElementById(alertId);
-
-    if (alertElement) {
-        alertElement.classList.remove('show');
-
-        setTimeout(() => {
-            alertElement.style.display = 'none';
-        }, 300);
-    }
-}
-
-function handleRegistration(event) {
-    event.preventDefault();
-    console.log('Registration button clicked');
-
-    // Get form reference
-    const form = event.target.closest('form');
-    if (!form) {
-        console.error('Registration form not found');
-        return;
-    }
-
-    // Basic validation
-    const name = form.querySelector('input[name="namaLengkap"]').value;
-    const email = form.querySelector('input[name="email"]').value;
-    const password = form.querySelector('input[name="password"]').value;
-    const confirmPassword = form.querySelector('input[name="confirmPassword"]').value;
-
-    // Check empty fields
-    if (!name || !email || !password || !confirmPassword) {
-        showRegistrationError('Silakan lengkapi semua kolom');
-        return;
-    }
-
-    // Check password match
-    if (password !== confirmPassword) {
-        showRegistrationError('Password dan konfirmasi password tidak cocok');
-        return;
-    }
-
-    // Show success alert
-    showRegistrationSuccessAlert();
-
-    // Submit the form after delay
-    setTimeout(() => {
-        console.log('Submitting registration form...');
-        form.submit();
-    }, 2000);
-}
-
-// Function to show error in registration modal
-function showRegistrationError(message) {
-    // Create alert if it doesn't exist
-    let registrationAlert = document.getElementById('registrationAlert');
-    if (!registrationAlert) {
-        registrationAlert = document.createElement('div');
-        registrationAlert.id = 'registrationAlert';
-        registrationAlert.className = 'alert alert-danger alert-dismissible fade show mb-3';
-        registrationAlert.setAttribute('role', 'alert');
-        registrationAlert.innerHTML = `
-            <span id="registrationAlertMessage"></span>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        `;
-
-        // Insert at the beginning of modal body
-        const modalBody = document.querySelector('#registrasiModal .modal-body');
-        if (modalBody) {
-            modalBody.insertBefore(registrationAlert, modalBody.firstChild);
-        }
-    }
-
-    // Set message and display
-    document.getElementById('registrationAlertMessage').textContent = message;
-    registrationAlert.style.display = 'block';
-}
-
-// Create registration success alert
-function createRegistrationSuccessAlert() {
-    const alertDiv = document.createElement('div');
-    alertDiv.id = 'registrationSuccessAlert';
-    alertDiv.className = 'custom-alert';
-    alertDiv.style.display = 'none';
-    alertDiv.setAttribute('role', 'dialog');
-    alertDiv.setAttribute('aria-modal', 'true');
-
-    alertDiv.innerHTML = `
-        <div class="custom-alert-content">
-            <div class="alert-icon">
-                <div class="checkmark">&#10004;</div>
-            </div>
-            <div class="alert-message">
-                <h4>Registrasi Berhasil!</h4>
-                <p>Akun Anda telah berhasil terdaftar.</p>
-            </div>
-            <div class="alert-actions">
-                <button type="button" class="btn-confirm" onclick="closeRegistrationAlert()">OK</button>
-            </div>
-        </div>
-    `;
-
-    document.body.appendChild(alertDiv);
-    return alertDiv;
-}
-
-// Show registration success alert
-function showRegistrationSuccessAlert() {
-    const alertElement = document.getElementById('registrationSuccessAlert') || createRegistrationSuccessAlert();
-
-    // Hide the registration modal first
-    const registrasiModal = bootstrap.Modal.getInstance(document.getElementById('registrasiModal'));
-    if (registrasiModal) {
-        registrasiModal.hide();
-    }
-
-    // Show alert
-    alertElement.style.display = 'flex';
-    alertElement.style.zIndex = '9999';
-
-    // Force reflow for animation
-    void alertElement.offsetWidth;
-
-    // Add show class for animation
-    alertElement.classList.add('show');
-    console.log('Registration success alert shown');
-}
-
-// Close registration alert
-function closeRegistrationAlert() {
-    const alertElement = document.getElementById('registrationSuccessAlert');
-    if (alertElement) {
-        alertElement.classList.remove('show');
-
-        setTimeout(() => {
-            alertElement.style.display = 'none';
-        }, 300);
-    }
-}
-
-function showLoginFailedAlert(message = "Email atau password yang Anda masukkan salah.") {
-    const alertElement = document.getElementById('loginFailedAlert');
-    const messageElement = document.getElementById('loginFailedMessage');
-
-    if (alertElement && messageElement) {
-        messageElement.textContent = message;
-        alertElement.style.display = 'flex';
-
-        // Force reflow for animation
-        void alertElement.offsetWidth;
-
-        // Add show class for animation
-        alertElement.classList.add('show');
-        console.log('Login failed alert shown');
-    }
-}
-
-// Function to close failed login alert
-function closeLoginFailedAlert() {
-    const alertElement = document.getElementById('loginFailedAlert');
-    if (alertElement) {
-        alertElement.classList.remove('show');
-
-        setTimeout(() => {
-            alertElement.style.display = 'none';
-        }, 300);
-    }
-}
 </script>
+ <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      @if(session('success'))
+        showLoginSuccess(@json(session('success')));
+      @endif
+
+      @if(session('warning'))
+        showLoginError(@json(session('warning')));
+      @endif
+    });
+  </script>

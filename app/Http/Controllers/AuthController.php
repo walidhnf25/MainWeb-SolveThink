@@ -22,26 +22,41 @@ class AuthController extends Controller
         return view('index', compact('component', 'product', 'courseSD', 'courseMLAI', 'courseIoT'));
     }
 
+    // public function proseslogin(Request $request)
+    // {
+    //     $credentials = $request->only('email', 'password');
+
+    //     if (Auth::attempt($credentials)) {
+    //         return redirect()->intended('/');
+    //     }
+
+    //     return redirect('/')->with('warning', 'Email atau Password salah!');
+    // }
+
     public function proseslogin(Request $request)
     {
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+            return redirect()->intended('/')
+                            ->with('success', 'Login berhasil! Selamat datang.');
         }
 
-        return redirect('/')->with('warning', 'Email atau Password salah!');
+        // login gagal → flash warning
+        return redirect('/')
+            ->with('warning', 'Email atau Password salah!');
     }
 
     public function prosesregistrasi(Request $request)
-    {
-        // Validasi input
-        $request->validate([
-            'namaLengkap' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6',
-        ]);
+{
+    // Validasi input (jika gagal akan otomatis redirect back)
+    $request->validate([
+        'namaLengkap' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|min:6',
+    ]);
 
+    try {
         // Simpan data ke database
         User::create([
             'name' => $request->namaLengkap,
@@ -50,9 +65,16 @@ class AuthController extends Controller
             'role' => 'user',
         ]);
 
-        // Redirect ke halaman tertentu dengan pesan sukses
-        return redirect()->route('/')->with('success', 'Registrasi berhasil, silakan login.');
+        // Sukses
+        return redirect('/')
+            ->with('success', 'Registrasi berhasil, silakan login.');
+    } catch (\Exception $e) {
+        // Gagal menyimpan (misalnya koneksi DB, error lain)
+        return redirect('/')
+            ->with('warning', 'Registrasi gagal. Silakan coba lagi.');
     }
+}
+
 
     public function logout()
     {

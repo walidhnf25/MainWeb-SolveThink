@@ -21,6 +21,7 @@ route::middleware(['guest:user'])->group(function () {
         return view('index');
     });
 
+
     Route::get('/component', [ComponentController::class, 'index'])->name('component.index');
     Route::post('/component/store', [ComponentController::class, 'store'])->name('component.store');
     Route::put('/component/update/{id}', [ComponentController::class, 'update'])->name('component.update');
@@ -33,7 +34,7 @@ route::middleware(['guest:user'])->group(function () {
 
     Route::get('/', [AuthController::class, 'index'])->name('index');
     Route::post('/login', [AuthController::class, 'proseslogin'])->name('proseslogin');
-    Route::post('/register', [AuthController::class, 'prosesregistrasi'])->name('prosesregistrasi');
+    Route::post('/registrasi', [AuthController::class, 'prosesregistrasi'])->name('prosesregistrasi');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('/software', [CourseController::class, 'software'])->name('software');
@@ -43,4 +44,8 @@ route::middleware(['guest:user'])->group(function () {
     Route::put('/course/update/{id}', [CourseController::class, 'update'])->name('course.update');
     Route::delete('/course/destroy/{id}', [CourseController::class, 'destroy'])->name('course.destroy');
 
+      // About
+      Route::get('/about', function () {
+        return view('about');
+    })->name('about.index');
 });
