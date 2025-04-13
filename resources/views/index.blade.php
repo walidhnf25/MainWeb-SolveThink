@@ -26,44 +26,51 @@
 
         <!-- Modal Subs -->
         <div class="modal fade" id="subscriptionModal" tabindex="-1" aria-labelledby="subscriptionModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered modal-md">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title w-100 text-center" id="subscriptionModalLabel">
+                    <div class="modal-header border-bottom-0">
+                        <h5 class="modal-title w-100 text-center fw-bold" id="subscriptionModalLabel">
                             <i class="bi bi-bag"></i> Paket Berlangganan
                         </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <div class="d-flex justify-content-center gap-4">
-                            <div class="card text-start shadow-sm border-0" style="width: 18rem; border-radius: 12px;">
-                                <div class="card-header bg-primary text-white rounded-top text-center">
-                                    Free Trial
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title mb-3">Rp. 0/bulan</h5>
-                                    <p class="card-text text-muted mb-4">Akses seluruh materi dalam E-Learning untuk pengguna baru</p>
-                                    <div class="text-center mb-3">
-                                        <button class="btn btn-free btn-primary px-4 py-2 rounded-pill w-100"
-                                            @if(Auth::check() && (Auth::user()->tgl_berlangganan == null || Auth::user()->tgl_berlangganan == '0000-00-00'))
-                                                onclick="berlangganan()"
-                                            @else
-                                                disabled
-                                            @endif>
-                                            Free Trial
-                                        </button>
+                    <div class="modal-body px-4 py-3">
+                        <div class="row justify-content-center g-4">
+                            <!-- Free Trial Card -->
+                            <div class="col-12 col-md-6">
+                                <div class="card h-100 shadow-sm border-0" style="border-radius: 12px;">
+                                    <div class="card-header bg-primary text-white text-center py-3 rounded-top">
+                                        <h6 class="mb-0 fw-bold">Free Trial</h6>
+                                    </div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title mb-3 fw-bold">Rp. 0/bulan</h5>
+                                        <p class="card-text text-muted mb-4 flex-grow-1">Akses seluruh materi dalam E-Learning untuk pengguna baru</p>
+                                        <div class="text-center mt-auto">
+                                            <button class="btn btn-free btn-primary px-4 py-2 rounded-pill w-100"
+                                                @if(Auth::check() && (Auth::user()->tgl_berlangganan == null || Auth::user()->tgl_berlangganan == '0000-00-00'))
+                                                    onclick="berlangganan()"
+                                                @else
+                                                    disabled
+                                                @endif>
+                                                Free Trial
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card text-start shadow-sm border-0" style="width: 18rem; border-radius: 12px;">
-                                <div class="card-header bg-secondary text-white rounded-top text-center">
-                                    Premium
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title mb-3">Rp. 5.000/bulan</h5>
-                                    <p class="card-text text-muted mb-4">Akses seluruh materi dalam E-Learning untuk pengguna premium</p>
-                                    <div class="text-center mb-3">
-                                        <button class="btn btn-premium btn-secondary px-4 py-2 rounded-pill w-100" disabled>Daftar</button>
+                            
+                            <!-- Premium Card -->
+                            <div class="col-12 col-md-6">
+                                <div class="card h-100 shadow-sm border-0" style="border-radius: 12px;">
+                                    <div class="card-header bg-secondary text-white text-center py-3 rounded-top">
+                                        <h6 class="mb-0 fw-bold">Premium</h6>
+                                    </div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title mb-3 fw-bold">Rp. 5.000/bulan</h5>
+                                        <p class="card-text text-muted mb-4 flex-grow-1">Akses seluruh materi dalam E-Learning untuk pengguna premium</p>
+                                        <div class="text-center mt-auto">
+                                            <button class="btn btn-premium btn-secondary px-4 py-2 rounded-pill w-100" disabled>Daftar</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -72,6 +79,7 @@
                 </div>
             </div>
         </div>
+        
 
         <!-- About Start -->
         <div class="container-fluid">
@@ -272,6 +280,188 @@
                 </div>
             </div>
         </div>
+        <!-- About End -->
+
+        <!-- Class Start -->
+        <div class="container py-5">
+            <div class="section-title position-relative text-center mb-4 mb-md-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="position-relative d-inline text-primary ps-4">Our Services</h6>
+                <h2 class="mt-2">Classes We Offer</h2>
+            </div>
+        
+            @if(auth()->check() && auth()->user()->role === 'admin')
+            <div class="d-flex justify-content-end mb-3 mb-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                <a href="#" class="btn btn-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#addClassModal">
+                    <i class="fas fa-plus"></i>
+                </a>
+            </div>
+            @endif
+        
+            <div class="category-section mb-4 mb-md-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="row g-3 g-md-4">
+                    <!-- Design Class Card 1 -->
+                    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="card border-0 shadow-sm bg-white h-100 position-relative">
+                            @if(auth()->check() && auth()->user()->role === 'admin')
+                            <div class="position-absolute top-0 end-0 m-2 d-flex z-3">
+                                <button class="btn btn-success btn-sm me-1" data-bs-toggle="modal" data-bs-target="#editClassModal1">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-sm delete-confirm">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                            @endif
+                            <img src="{{ asset('img/ui_ux-designer.jpg') }}" class="card-img-top img-fluid" alt="Class" style="height: 180px; object-fit: cover;">
+                            <div class="card-body p-3 p-md-4 d-flex flex-column">
+                                <h5 class="card-title text-center mb-3">UI/UX Design Fundamentals</h5>
+                                <p class="text-center text-primary fw-bold mb-3">Rp 1.500.000</p>
+                                <div class="text-center mt-auto">
+                                    <a href="#" class="btn btn-sm btn-outline-dark rounded-pill px-4">View Details →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Design Class Card 2 -->
+                    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="card border-0 shadow-sm bg-white h-100 position-relative">
+                            @if(auth()->check() && auth()->user()->role === 'admin')
+                            <div class="position-absolute top-0 end-0 m-2 d-flex z-3">
+                                <button class="btn btn-success btn-sm me-1" data-bs-toggle="modal" data-bs-target="#editClassModal2">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-sm delete-confirm">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                            @endif
+                            <img src="{{ asset('img/portfolio-6.jpg') }}" class="card-img-top img-fluid" alt="Class" style="height: 180px; object-fit: cover;">
+                            <div class="card-body p-3 p-md-4 d-flex flex-column">
+                                <h5 class="card-title text-center mb-3">Advanced Graphic Design</h5>
+                                <p class="text-center text-primary fw-bold mb-3">Rp 1.800.000</p>
+                                <div class="text-center mt-auto">
+                                    <a href="#" class="btn btn-sm btn-outline-dark rounded-pill px-4">View Details →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Design Class Card 3 -->
+                    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="card border-0 shadow-sm bg-white h-100 position-relative">
+                            @if(auth()->check() && auth()->user()->role === 'admin')
+                            <div class="position-absolute top-0 end-0 m-2 d-flex z-3">
+                                <button class="btn btn-success btn-sm me-1" data-bs-toggle="modal" data-bs-target="#editClassModal3">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-sm delete-confirm">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                            @endif
+                            <img src="{{ asset('img/portfolio-5.jpg') }}" class="card-img-top img-fluid" alt="Class" style="height: 180px; object-fit: cover;">
+                            <div class="card-body p-3 p-md-4 d-flex flex-column">
+                                <h5 class="card-title text-center mb-3">Responsive Web Design</h5>
+                                <p class="text-center text-primary fw-bold mb-3">Rp 1.650.000</p>
+                                <div class="text-center mt-auto">
+                                    <a href="#" class="btn btn-sm btn-outline-dark rounded-pill px-4">View Details →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- Add Class Modal -->
+<div class="modal fade" id="addClassModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tambah Class</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label for="class_name" class="form-label">Nama Kelas</label>
+                                <input type="text" class="form-control" id="class_name" name="class_name" 
+                                    placeholder="Nama Kelas">
+                            </div>
+                            <div class="mb-3">
+                                <label for="class_price" class="form-label">Harga Kelas</label>
+                                <input type="text" class="form-control" id="class_price" name="class_price" 
+                                    placeholder="Harga Kelas">
+                            </div>
+                            <div class="mb-3">
+                                <label for="class_link" class="form-label">Link Pendaftaran</label>
+                                <input type="text" class="form-control" id="class_link" name="class_link" 
+                                    placeholder="Link Pendaftaran">
+                            </div>
+                            <div class="mb-3">
+                                <label for="class_image" class="form-label">Upload Gambar</label>
+                                <input type="file" class="form-control" id="class_image" name="class_image" accept="image/*">
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group d-flex justify-content-center">
+                                        <button type="Submit" class="btn btn-primary flex-grow-1">Simpan</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Edit Class Modals -->
+@for ($i = 1; $i <= 3; $i++)
+<div class="modal fade" id="editClassModal{{$i}}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Class</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formEditClass{{$i}}" action="" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input type="hidden" id="edit_class_id{{$i}}" name="id">
+                    <div class="mb-3">
+                        <label for="edit_class_name{{$i}}" class="form-label">Nama Kelas</label>
+                        <input type="text" class="form-control" id="edit_class_name{{$i}}" name="class_name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_class_price{{$i}}" class="form-label">Harga Kelas</label>
+                        <input type="text" class="form-control" id="edit_class_price{{$i}}" name="class_price">
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_class_link{{$i}}" class="form-label">Link Pendaftaran</label>
+                        <input type="text" class="form-control" id="edit_class_link{{$i}}" name="class_link">
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_class_image{{$i}}" class="form-label">Upload Gambar</label>
+                        <input type="file" class="form-control" id="edit_class_image{{$i}}" name="class_image" accept="image/*">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-success flex-grow-1">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endfor
 
         <div class="container-xxl py-5">
             <div class="container px-lg-5">
@@ -312,8 +502,8 @@
                                         <img src="https://via.placeholder.com/250x150" alt="Placeholder" class="img-fluid w-100 rounded-top" style="height: 150px; object-fit: cover;">
                                     @endif
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ $item->nama_barang }}</h5>
-                                        <p class="card-text text-muted"><i class="fa fa-money-bill me-2"></i>Rp. {{ number_format($item->harga_barang, 0, ',', '.') }}</p>
+                                        <h5 class="card-title text-center mb-3">{{ $item->nama_barang }}</h5>
+                                        <p class="text-center text-primary fw-bold mb-3">Rp {{ number_format($item->harga_barang, 0, ',', '.') }}</p>
                                         <div class="d-flex justify-content-center mt-3">
                                             <a href="{{ $item->link_shopee }}" target="_blank">
                                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
@@ -552,7 +742,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group d-flex justify-content-center">
-                                                <button type="Submit" class="btn btn-primary flex-grow-1">Simpan</button>
+                                                <button type="submit" class="btn btn-primary flex-grow-1">Simpan</button>
                                             </div>
                                         </div>
                                     </div>
@@ -935,7 +1125,7 @@
                         popup: 'animated bounceIn faster', // Menambahkan animasi pada popup
                     },
                     showConfirmButton: false,
-                    timer: 1500,  // Popup akan menutup otomatis setelah 1500ms
+                    timer: 100,  // Popup akan menutup otomatis setelah 1500ms
                 });
             }
         })
@@ -957,7 +1147,7 @@
                 setTimeout(function() {
                     alert.style.display = 'none';
                 }, 150);
-            }, 5000);
+            }, 1000);
         }
     }
 )
@@ -982,18 +1172,7 @@ function showAlert(message = "Data berhasil disimpan.") {
     }
 }
 
-function closeAlert() {
-    const alertElement = document.getElementById('customAlert');
-    if (alertElement) {
-        // Remove show class first to trigger animations
-        alertElement.classList.remove('show');
 
-        // Wait for animations to complete before hiding
-        setTimeout(() => {
-            alertElement.style.display = 'none';
-        }, 300); // Match with CSS transition time
-    }
-}
 
 // Handle course form submissions
 document.addEventListener('DOMContentLoaded', function() {
@@ -1036,184 +1215,51 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function handleComponentSubmit(button) {
-    // Get the form
-    const form = button.closest('form');
-    if (!form) {
-        console.error('Form not found');
-        return;
+document.addEventListener('DOMContentLoaded', function() {
+    // Example data for demo purposes
+    const classData = [
+        {
+            id: 1,
+            name: "UI/UX Design Fundamentals",
+            price: 1500000,
+            link: "#",
+            level: "beginner",
+            description: "Learn the core principles of creating user-friendly interfaces and seamless experiences.",
+            category: "design"
+        },
+        {
+            id: 2,
+            name: "Advanced Graphic Design",
+            price: 2200000,
+            link: "#",
+            level: "intermediate",
+            description: "Master digital illustration, typography, and branding with industry-standard tools.",
+            category: "design"
+        },
+        {
+            id: 3,
+            name: "Responsive Web Design",
+            price: 1800000,
+            link: "#",
+            level: "advanced",
+            description: "Create beautiful, functional websites that work seamlessly across all devices.",
+            category: "design"
+        }
+    ];
+
+    // Set up edit buttons to populate forms
+    for (let i = 1; i <= 3; i++) {
+        const data = classData[i-1];
+        document.getElementById(`editClassModal${i}`).addEventListener('show.bs.modal', function() {
+            document.getElementById(`edit_class_name${i}`).value = data.name;
+            document.getElementById(`edit_class_price${i}`).value = data.price;
+            document.getElementById(`edit_class_link${i}`).value = data.link;
+            document.getElementById(`edit_class_level${i}`).value = data.level;
+            document.getElementById(`edit_class_description${i}`).value = data.description;
+            document.getElementById(`edit_class_category${i}`).value = data.category;
+        });
     }
+});
 
-    // Basic validation
-    const namaBarang = form.querySelector('#nama_barang').value;
-    const hargaBarang = form.querySelector('#harga_barang').value;
-
-    if (!namaBarang || !hargaBarang) {
-        alert('Nama barang dan harga harus diisi.');
-        return;
-    }
-
-    // Show the custom alert
-    showComponentAlert("Component berhasil disimpan");
-
-    // Submit the form after a delay
-    setTimeout(() => {
-        form.submit();
-    }, 2000);
-}
-
-// Function to show component alert
-function showComponentAlert(message) {
-    // Check if alert element already exists
-    let alertElement = document.getElementById('componentAlert');
-
-    // If it doesn't exist, create it
-    if (!alertElement) {
-        alertElement = document.createElement('div');
-        alertElement.id = 'componentAlert';
-        alertElement.className = 'custom-alert';
-        alertElement.setAttribute('role', 'dialog');
-        alertElement.setAttribute('aria-modal', 'true');
-
-        alertElement.innerHTML = `
-            <div class="custom-alert-content">
-                <div class="alert-icon">
-                    <div class="checkmark">&#10004;</div>
-                </div>
-                <div class="alert-message">
-                    <h4>Sukses!</h4>
-                    <p id="componentAlertMessage">${message}</p>
-                </div>
-                <div class="alert-actions">
-                    <button type="button" class="btn-confirm" onclick="closeComponentAlert()">OK</button>
-                </div>
-            </div>
-        `;
-
-        document.body.appendChild(alertElement);
-    } else {
-        // Update message if alert exists
-        document.getElementById('componentAlertMessage').textContent = message;
-    }
-
-    // Close the modal
-    const modal = bootstrap.Modal.getInstance(document.getElementById('modal-inputcomponent'));
-    if (modal) {
-        modal.hide();
-    }
-
-    // Show the alert with animation
-    alertElement.style.display = 'flex';
-
-    // Force reflow for animation to work
-    void alertElement.offsetWidth;
-
-    // Add show class for animation
-    alertElement.classList.add('show');
-}
-
-// Function to close component alert
-function closeComponentAlert() {
-    const alertElement = document.getElementById('componentAlert');
-    if (alertElement) {
-        // Remove show class first to trigger animation
-        alertElement.classList.remove('show');
-
-        // Hide after animation completes
-        setTimeout(() => {
-            alertElement.style.display = 'none';
-        }, 300);
-    }
-}
-
-function handleProductSubmit(button) {
-    // Get the form
-    const form = button.closest('form');
-    if (!form) {
-        console.error('Product form not found');
-        return;
-    }
-
-    // Basic validation
-    const namaProduk = form.querySelector('#nama_produk').value;
-    const hargaProduk = form.querySelector('#harga_produk').value;
-
-    if (!namaProduk || !hargaProduk) {
-        alert('Nama produk dan harga harus diisi.');
-        return;
-    }
-
-    // Show the custom alert
-    showProductAlert("Produk berhasil disimpan");
-
-    // Submit the form after a delay
-    setTimeout(() => {
-        form.submit();
-    }, 2000);
-}
-
-// Function to show product alert
-function showProductAlert(message) {
-    // Check if alert element already exists
-    let alertElement = document.getElementById('productAlert');
-
-    // If it doesn't exist, create it
-    if (!alertElement) {
-        alertElement = document.createElement('div');
-        alertElement.id = 'productAlert';
-        alertElement.className = 'custom-alert';
-        alertElement.setAttribute('role', 'dialog');
-        alertElement.setAttribute('aria-modal', 'true');
-
-        alertElement.innerHTML = `
-            <div class="custom-alert-content">
-                <div class="alert-icon">
-                    <div class="checkmark">&#10004;</div>
-                </div>
-                <div class="alert-message">
-                    <h4>Sukses!</h4>
-                    <p id="productAlertMessage">${message}</p>
-                </div>
-                <div class="alert-actions">
-                    <button type="button" class="btn-confirm" onclick="closeProductAlert()">OK</button>
-                </div>
-            </div>
-        `;
-
-        document.body.appendChild(alertElement);
-    } else {
-        // Update message if alert exists
-        document.getElementById('productAlertMessage').textContent = message;
-    }
-
-    // Close the modal
-    const modal = bootstrap.Modal.getInstance(document.getElementById('modal-inputproduct'));
-    if (modal) {
-        modal.hide();
-    }
-
-    // Show the alert with animation
-    alertElement.style.display = 'flex';
-
-    // Force reflow for animation to work
-    void alertElement.offsetWidth;
-
-    // Add show class for animation
-    alertElement.classList.add('show');
-}
-
-// Function to close product alert
-function closeProductAlert() {
-    const alertElement = document.getElementById('productAlert');
-    if (alertElement) {
-        // Remove show class first to trigger animation
-        alertElement.classList.remove('show');
-
-        // Hide after animation completes
-        setTimeout(() => {
-            alertElement.style.display = 'none';
-        }, 300);
-    }
-}
     </script>
 @endpush

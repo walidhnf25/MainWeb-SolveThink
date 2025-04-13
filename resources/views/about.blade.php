@@ -1,24 +1,19 @@
 @extends('layouts.tabler')
 
 @section('content')
-<div class="container-fluid bg-white p-0">
-    <!-- Navbar & Hero Start -->
-    <div class="container-fluid position-relative p-0">
-        <div class="container-fluid py-5 bg-primary hero-header">
-            <div class="container my-5 py-2 px-lg-5">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 text-center text-lg-start">
-                        <h1 class="text-white mb-4 animated zoomIn">SolveThink</h1>
-                        <p class="text-white pb-3 animated zoomIn">
-                            Tempor rebum no at dolore lorem clita rebum rebum ipsum rebum stet dolor sed justo kasd. Ut dolor sed magna dolor sea diam. Sit diam sit justo amet ipsum vero ipsum clita lorem.
-                        </p>
-                        <button id="subscribeButton" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Berlangganan</button>
-                        <a href="" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a>
-                    </div>
-                    <div class="col-lg-6 text-center">
-                        <img class="img-fluid animated zoomIn" src="img/robotic.png" alt=""
-                        style="max-width: 80%; height: auto; margin-top: -20px; margin-bottom: 50px;">
-                    </div>
+    <div class="container-fluid py-5 bg-primary hero-header mb-5">
+        <div class="container-fluid my-5 py-5 px-lg-5">
+            <div class="row g-5 py-5">
+                <div class="col-12 text-center">
+                    <h1 class="text-white animated zoomIn">About</h1>
+                    <hr class="bg-white mx-auto mt-0" style="width: 90px;">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -71,67 +66,84 @@
     <div class="container-xxl py-5">
         <div class="container px-lg-5">
             <div class="row g-5 align-items-center">
-                <div class="col-lg-6">
-                    <div class="position-relative overflow-hidden rounded-4 shadow">
-                        <!-- The image container -->
-                        <div class="ratio ratio-4x3">
-                            <img class="object-fit-cover" src="{{ asset('img/about.jpg') }}" alt="About SolveThink">
+                <!-- Gambar -->
+                <div class="col-lg-6 d-flex align-items-center">
+                    <div class="w-100">
+                        <div class="ratio ratio-4x3 bg-white rounded-4 overflow-hidden shadow">
+                            <img src="{{ asset('img/st_new_2.png') }}" alt="About SolveThink"
+                                class="w-100 h-100" style="object-fit: contain; object-position: center;">
                         </div>
-                        <!-- Caption with Bootstrap opacity classes -->
-                        <div class="position-absolute start-0 bottom-0 w-100 p-3 bg-primary bg-opacity-75">
-                            <h3 class="text-white fw-bold mb-0">Innovation Since 2025</h3>
+                        <div class="bg-primary bg-opacity-75 p-3 text-center rounded-bottom">
+                            <h5 class="text-white fw-bold mb-0">Innovation Since 2025</h5>
                         </div>
                     </div>
                 </div>
+
+                <!-- Teks -->
                 <div class="col-lg-6">
-                    <div class="position-relative mb-4">
-                        <h6 class="position-relative text-primary ps-4">Who We Are</h6>
+                    <div class="mb-4">
+                        <h6 class="text-primary ps-4">Who We Are</h6>
                         <h2 class="mt-2 fw-bold">Pioneering Technological Solutions for Tomorrow's Challenges</h2>
-                    </div>
-                    <p class="mb-4">SolveThink was founded with a simple yet ambitious goal: to make technology accessible, understandable, and beneficial for everyone. Starting as a small team of passionate engineers, we've grown into a dynamic company offering innovative solutions across multiple domains.</p>
-
-                    <div class="row g-4 mb-5">
-                        <div class="col-md-6 mb-4">
-                            <div class="d-flex align-items-center p-4 rounded shadow-sm bg-white h-100 feature-card">
-                                <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-4" style="width: 60px; height: 60px;">
-                                    <i class="fa fa-graduation-cap fa-lg text-white"></i>
-                                </div>
-                                <h5 class="mb-0">Bimbingan Belajar</h5>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="d-flex align-items-center p-4 rounded shadow-sm bg-white h-100 feature-card">
-                                <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-4" style="width: 60px; height: 60px;">
-                                    <i class="fa fa-microchip fa-lg text-white"></i>
-                                </div>
-                                <h5 class="mb-0">Materi Pembelajaran</h5>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="d-flex align-items-center p-4 rounded shadow-sm bg-white h-100 feature-card">
-                                <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-4" style="width: 60px; height: 60px;">
-                                    <i class="fa fa-code fa-lg text-white"></i>
-                                </div>
-                                <h5 class="mb-0">Electronic Component</h5>
-                            </div>
-                        </div>
+                        <p class="mt-3">SolveThink was founded with a simple yet ambitious goal: to make technology accessible, understandable, and beneficial for everyone. Starting as a small team of passionate engineers, we've grown into a dynamic company offering innovative solutions across multiple domains.</p>
                     </div>
 
-                    <div class="d-flex align-items-center mt-5">
-                        <a class="btn btn-primary rounded-pill px-4 py-3 me-4" href="#services">Our Services</a>
-                        <a class="text-primary fw-medium ms-2" href="#stats">
-                            <span class="me-2"><i class="fa fa-arrow-right"></i></span> Company Stats
-                        </a>
+                    <!-- Fitur -->
+                    <div class="row g-4">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center p-4 rounded shadow-sm bg-white h-100">
+                                <div class="flex-shrink-0 bg-primary rounded-circle d-flex align-items-center justify-content-center me-3"
+                                    style="width: 60px; height: 60px;">
+                                    <i class="fa fa-graduation-cap text-white fa-lg"></i>
+                                </div>
+                                <h6 class="mb-0 fw-semibold">Bimbingan Belajar</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center p-4 rounded shadow-sm bg-white h-100">
+                                <div class="flex-shrink-0 bg-primary rounded-circle d-flex align-items-center justify-content-center me-3"
+                                    style="width: 60px; height: 60px;">
+                                    <i class="fa fa-microchip text-white fa-lg"></i>
+                                </div>
+                                <h6 class="mb-0 fw-semibold">Materi Pembelajaran</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center p-4 rounded shadow-sm bg-white h-100">
+                                <div class="flex-shrink-0 bg-primary rounded-circle d-flex align-items-center justify-content-center me-3"
+                                    style="width: 60px; height: 60px;">
+                                    <i class="fa fa-code text-white fa-lg"></i>
+                                </div>
+                                <h6 class="mb-0 fw-semibold">Electronic Component</h6>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </div> <!-- end teks -->
             </div>
         </div>
     </div>
+
     <!-- About Us End -->
 
     <!-- Stats Counter -->
     <div id="stats" class="container-fluid py-5 bg-light">
         <div class="container py-4">
+            <div class="text-center mb-5 position-relative">
+                <div class="d-inline-block position-relative mb-3">
+                    <h6 class="text-primary fw-bold text-uppercase mb-0 letter-spacing-1 d-inline-block">
+                        <i class="fas fa-chart-line me-2"></i>Our Numbers
+                    </h6>
+                    <div class="position-absolute start-0 bottom-0 w-100 border-bottom border-2 border-primary"></div>
+                </div>
+                <h2 class="fw-bold display-5 mb-3 position-relative">Our <span class="text-primary">Achievements</span></h2>
+                <div class="d-flex align-items-center justify-content-center">
+                    <div class="border-top border-primary w-25 mx-3"></div>
+                    <i class="fas fa-trophy text-primary"></i>
+                    <div class="border-top border-primary w-25 mx-3"></div>
+                </div>
+                <p class="text-muted mt-3 px-md-5 mx-md-5 w-md-75 mx-auto">
+                    Our track record of excellence speaks through these numbers. Every milestone represents our commitment to quality and innovation.
+                </p>
+            </div>
             <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-3">
                     <div class="card border-0 shadow-sm h-100 p-4 text-center">
@@ -169,7 +181,7 @@
                             </div>
                         </div>
                         <div>
-                            <h2 class="display-4 fw-bold text-primary mb-0 counter">5000</h2>
+                            <h2 class="display-4 fw-bold text-primary mb-0 counter">5</h2>
                             <div class="border-top border-primary mx-auto my-2" style="width: 40px;"></div>
                             <p class="fw-bold text-dark mt-2">Years Experience</p>
                         </div>
@@ -316,9 +328,9 @@
                 <h6 class="text-primary fw-bold mb-2">Our Team</h6>
                 <h2 class="fw-bold">Meet The People Behind SolveThink</h2>
             </div>
-            <div class="row g-4 g-md-4 justify-content-center">
+            <div class="row g-4 justify-content-center">
                 <!-- Team Member 1 -->
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-10 col-sm-6 col-lg-3 mx-auto">
                     <div class="card border-0 shadow-sm overflow-hidden h-100">
                         <div class="position-relative">
                             <img class="img-fluid w-100" src="img/team-1.jpg" alt="John Doe">
@@ -334,9 +346,9 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Team Member 2 -->
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-10 col-sm-6 col-lg-3 mx-auto">
                     <div class="card border-0 shadow-sm overflow-hidden h-100">
                         <div class="position-relative">
                             <img class="img-fluid w-100" src="img/team-2.jpg" alt="Jane Smith">
@@ -352,9 +364,9 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Team Member 3 -->
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-10 col-sm-6 col-lg-3 mx-auto">
                     <div class="card border-0 shadow-sm overflow-hidden h-100">
                         <div class="position-relative">
                             <img class="img-fluid w-100" src="img/team-3.jpg" alt="Michael Johnson">

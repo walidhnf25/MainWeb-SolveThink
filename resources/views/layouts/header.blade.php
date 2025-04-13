@@ -19,10 +19,11 @@
                         <a href="{{ route('iot') }}" class="dropdown-item {{ Request::is('iot*') ? 'active' : '' }}">Internet of Things</a>
                     </div>
                 </div>
+                <a href="{{ route('classes.index') }}" class="nav-item nav-link {{ Request::routeIs('classes.index') ? 'active' : '' }}">Class</a>
                 <a href="{{ route('component.index') }}" class="nav-item nav-link {{ Request::routeIs('component.index') ? 'active' : '' }}">Electronic Component</a>
                 <!-- <a href="{{ route('product.index') }}" class="nav-item nav-link {{ Request::is('product*') ? 'active' : '' }}">Product</a> -->
                 <a href="{{ route('about.index') }}" class="nav-item nav-link {{ Request::is('about*') ? 'active' : '' }}">About</a>
-                <a href="contact.html" class="nav-item nav-link {{ Request::is('contact*') ? 'active' : '' }}">Contact</a>
+                <a href="{{ route('contact.index') }}" class="nav-item nav-link {{ Request::is('contact*') ? 'active' : '' }}">Contact</a>
             </div>
             <button type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
             @if (Auth::guest())
