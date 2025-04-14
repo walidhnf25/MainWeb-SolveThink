@@ -45,7 +45,15 @@ route::middleware(['guest:user'])->group(function () {
     Route::delete('/course/destroy/{id}', [CourseController::class, 'destroy'])->name('course.destroy');
 
       // About
-      Route::get('/about', function () {
+    Route::get('/about', function () {
         return view('about');
     })->name('about.index');
+
+    Route::get('/contact', function () {
+        return view('contact');
+    })->name('contact.index');
+
+    Route::get('/classes', function () {
+        return view('classes');
+    })->name('classes.index');
 });

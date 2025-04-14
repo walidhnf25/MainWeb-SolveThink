@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>SolveThink</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="{{ asset('img/st_ico.png') }}">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
