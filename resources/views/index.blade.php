@@ -1,4 +1,5 @@
 @extends('layouts.tabler')
+
 @section('content')
     <div class="container-fluid bg-white p-0">
         <!-- Navbar & Hero Start -->
@@ -58,7 +59,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Premium Card -->
                             <div class="col-12 col-md-6">
                                 <div class="card h-100 shadow-sm border-0" style="border-radius: 12px;">
@@ -79,7 +80,7 @@
                 </div>
             </div>
         </div>
-        
+
 
         <!-- About Start -->
         <div class="container-fluid">
@@ -288,7 +289,7 @@
                 <h6 class="position-relative d-inline text-primary ps-4">Our Services</h6>
                 <h2 class="mt-2">Classes We Offer</h2>
             </div>
-        
+
             @if(auth()->check() && auth()->user()->role === 'admin')
             <div class="d-flex justify-content-end mb-3 mb-md-4 wow fadeInUp" data-wow-delay="0.1s">
                 <a href="#" class="btn btn-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#addClassModal">
@@ -296,7 +297,7 @@
                 </a>
             </div>
             @endif
-        
+
             <div class="category-section mb-4 mb-md-5 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="row g-3 g-md-4">
                     <!-- Design Class Card 1 -->
@@ -390,17 +391,17 @@
                         <div class="col-12">
                             <div class="mb-3">
                                 <label for="class_name" class="form-label">Nama Kelas</label>
-                                <input type="text" class="form-control" id="class_name" name="class_name" 
+                                <input type="text" class="form-control" id="class_name" name="class_name"
                                     placeholder="Nama Kelas">
                             </div>
                             <div class="mb-3">
                                 <label for="class_price" class="form-label">Harga Kelas</label>
-                                <input type="text" class="form-control" id="class_price" name="class_price" 
+                                <input type="text" class="form-control" id="class_price" name="class_price"
                                     placeholder="Harga Kelas">
                             </div>
                             <div class="mb-3">
                                 <label for="class_link" class="form-label">Link Pendaftaran</label>
-                                <input type="text" class="form-control" id="class_link" name="class_link" 
+                                <input type="text" class="form-control" id="class_link" name="class_link"
                                     placeholder="Link Pendaftaran">
                             </div>
                             <div class="mb-3">
