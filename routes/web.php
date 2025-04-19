@@ -56,4 +56,12 @@ route::middleware(['guest:user'])->group(function () {
     Route::get('/classes', function () {
         return view('classes');
     })->name('classes.index');
+
+    Route::get('/news', function () {
+        return view('news');
+    })->name('news.index');
+
+    Route::get('/news-detail', function () {
+        return view('news-detail');
+    })->name('news.detail');
 });
