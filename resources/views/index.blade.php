@@ -8,12 +8,12 @@
                 <div class="container my-5 py-2 px-lg-5">
                     <div class="row align-items-center">
                         <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="text-white mb-4 animated zoomIn">SolveThink</h1>
+                            <h1 class="text-white mb-4 animated zoomIn">Halo, Solvethinker!</h1>
                             <p class="text-white pb-3 animated zoomIn">
-                                Tempor rebum no at dolore lorem clita rebum rebum ipsum rebum stet dolor sed justo kasd. Ut dolor sed magna dolor sea diam. Sit diam sit justo amet ipsum vero ipsum clita lorem.
+                                Siap upgrade skill kamu di dunia software development, ML AI Data Science, dan Internet of Things. Di sini kamu nggak cuma belajar bareng mentor kece, tapi juga bisa dapetin komponen elektronika buat project impianmu!
                             </p>
                             <button id="subscribeButton" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Berlangganan</button>
-                            <a href="" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a>
+                            <a href="" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Kontak Kami</a>
                         </div>
                         <div class="col-lg-6 text-center">
                             <img class="img-fluid animated zoomIn" src="img/robotic.png" alt=""
@@ -88,19 +88,19 @@
                 <div class="row g-5 d-flex align-items-center">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="section-title position-relative mb-4 pb-2">
-                            <h6 class="position-relative text-primary ps-4">About Us</h6>
-                            <h2 class="mt-2">The best .... solution dengan pengalaman terbaik.</h2>
+                            <h6 class="position-relative text-primary ps-4">Tentang Kami</h6>
+                            <h2 class="mt-2">Solusi terbaik dengan pengalaman terbaik. Belajar bersama, berkarya bersama!</h2>
                         </div>
                         <p class="mb-4">SolveThink Menyediakan:</p>
                         <div class="row g-3">
                             <div class="col-sm-12">
-                                <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Bimbingan Belajar</h6>
                                 <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Materi Pembelajaran</h6>
+                                <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Bimbingan Belajar</h6>
                                 <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Komponen Elektronika</h6>
                             </div>
                         </div>
                         <div class="d-flex align-items-center mt-4">
-                            <a class="btn btn-primary rounded-pill px-4 me-3" href="">Read More</a>
+                            <a class="btn btn-primary rounded-pill px-4 me-3" href="">Detail</a>
                             <a class="btn btn-outline-primary btn-square me-3" href=""><i class="fab fa-whatsapp"></i></a>
                             <a class="btn btn-outline-primary btn-square me-3" href=""><i class="fab fa-instagram"></i></a>
                             <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-discord"></i></a>
@@ -117,7 +117,7 @@
 
         <div class="container py-5">
             <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="position-relative d-inline text-primary ps-4">Our E-Learning</h6>
+                <h6 class="position-relative d-inline text-primary ps-4">E-Learning Kami</h6>
                 <h2 class="mt-2">Materi-Materi Pembelajaran</h2>
             </div>
 
@@ -286,8 +286,8 @@
         <!-- Class Start -->
         <div class="container py-5">
             <div class="section-title position-relative text-center mb-4 mb-md-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="position-relative d-inline text-primary ps-4">Our Services</h6>
-                <h2 class="mt-2">Classes We Offer</h2>
+                <h6 class="position-relative d-inline text-primary ps-4">Kelas Kami</h6>
+                <h2 class="mt-2">Kelas Bimbingan Belajar</h2>
             </div>
 
             @if(auth()->check() && auth()->user()->role === 'admin')
@@ -315,8 +315,8 @@
                             @endif
                             <img src="{{ asset('img/ui_ux-designer.jpg') }}" class="card-img-top img-fluid" alt="Class" style="height: 180px; object-fit: cover;">
                             <div class="card-body p-3 p-md-4 d-flex flex-column">
-                                <h5 class="card-title text-center mb-3">UI/UX Design Fundamentals</h5>
-                                <p class="text-center text-primary fw-bold mb-3">Rp 1.500.000</p>
+                                <h5 class="card-title text-center mb-3">Kelas Bimbingan Belajar Group</h5>
+                                <p class="text-center text-primary fw-bold mb-3">Harga Menyesuaikan</p>
                                 <div class="text-center mt-auto">
                                     <a href="#" class="btn btn-sm btn-outline-dark rounded-pill px-4">View Details →</a>
                                 </div>
@@ -339,8 +339,8 @@
                             @endif
                             <img src="{{ asset('img/portfolio-6.jpg') }}" class="card-img-top img-fluid" alt="Class" style="height: 180px; object-fit: cover;">
                             <div class="card-body p-3 p-md-4 d-flex flex-column">
-                                <h5 class="card-title text-center mb-3">Advanced Graphic Design</h5>
-                                <p class="text-center text-primary fw-bold mb-3">Rp 1.800.000</p>
+                                <h5 class="card-title text-center mb-3">Bimbingan Belajar Individu</h5>
+                                <p class="text-center text-primary fw-bold mb-3">Harga Menyesuaikan</p>
                                 <div class="text-center mt-auto">
                                     <a href="#" class="btn btn-sm btn-outline-dark rounded-pill px-4">View Details →</a>
                                 </div>
@@ -363,8 +363,8 @@
                             @endif
                             <img src="{{ asset('img/portfolio-5.jpg') }}" class="card-img-top img-fluid" alt="Class" style="height: 180px; object-fit: cover;">
                             <div class="card-body p-3 p-md-4 d-flex flex-column">
-                                <h5 class="card-title text-center mb-3">Responsive Web Design</h5>
-                                <p class="text-center text-primary fw-bold mb-3">Rp 1.650.000</p>
+                                <h5 class="card-title text-center mb-3">Konsultasi Gratis</h5>
+                                <p class="text-center text-primary fw-bold mb-3">Gratis</p>
                                 <div class="text-center mt-auto">
                                     <a href="#" class="btn btn-sm btn-outline-dark rounded-pill px-4">View Details →</a>
                                 </div>
@@ -467,7 +467,7 @@
         <div class="container-xxl py-5">
             <div class="container px-lg-5">
                 <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="position-relative d-inline text-primary ps-4">Our Electronic Component</h6>
+                    <h6 class="position-relative d-inline text-primary ps-4">Komponen Elektronika Kami</h6>
                     <h2 class="mt-2">Komponen-Komponen Elektronika</h2>
                 </div>
                 <div class="row mb-3">

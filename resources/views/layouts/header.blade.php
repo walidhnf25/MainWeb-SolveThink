@@ -10,7 +10,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="{{ route('index') }}" class="nav-item nav-link {{ Request::routeIs('index') ? 'active' : '' }}">Home</a>
+                <a href="{{ route('index') }}" class="nav-item nav-link {{ Request::routeIs('index') ? 'active' : '' }}">Dashboard</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle {{ Request::is('software*') || Request::is('ml-ai*') || Request::is('iot*') ? 'active' : '' }}" data-bs-toggle="dropdown">E-Learning</a>
                     <div class="dropdown-menu m-0">
@@ -19,12 +19,12 @@
                         <a href="{{ route('iot') }}" class="dropdown-item {{ Request::is('iot*') ? 'active' : '' }}">Internet of Things</a>
                     </div>
                 </div>
-                <a href="{{ route('classes.index') }}" class="nav-item nav-link {{ Request::routeIs('classes.index') ? 'active' : '' }}">Class</a>
-                <a href="{{ route('component.index') }}" class="nav-item nav-link {{ Request::routeIs('component.index') ? 'active' : '' }}">Electronic Component</a>
+                <a href="{{ route('class.index') }}" class="nav-item nav-link {{ Request::routeIs('class.index') ? 'active' : '' }}">Kelas</a>
+                <a href="{{ route('component.index') }}" class="nav-item nav-link {{ Request::routeIs('component.index') ? 'active' : '' }}">Komponen Elektronika</a>
                 <!-- <a href="{{ route('product.index') }}" class="nav-item nav-link {{ Request::is('product*') ? 'active' : '' }}">Product</a> -->
-                <a href="{{ route('about.index') }}" class="nav-item nav-link {{ Request::is('about*') ? 'active' : '' }}">About</a>
-                <a href="{{ route('news.index') }}" class="nav-item nav-link {{ Request::is('news*') ? 'active' : '' }}">News</a>
-                <a href="{{ route('contact.index') }}" class="nav-item nav-link {{ Request::is('contact*') ? 'active' : '' }}">Contact</a>
+                <a href="{{ route('about.index') }}" class="nav-item nav-link {{ Request::is('about*') ? 'active' : '' }}">Tentang</a>
+                <a href="{{ route('news.index') }}" class="nav-item nav-link {{ Request::is('news*') ? 'active' : '' }}">Berita</a>
+                <a href="{{ route('contact.index') }}" class="nav-item nav-link {{ Request::is('contact*') ? 'active' : '' }}">Kontak</a>
             </div>
             <button type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
             @if (Auth::guest())
