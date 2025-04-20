@@ -23,6 +23,7 @@
                 <a href="{{ route('component.index') }}" class="nav-item nav-link {{ Request::routeIs('component.index') ? 'active' : '' }}">Electronic Component</a>
                 <!-- <a href="{{ route('product.index') }}" class="nav-item nav-link {{ Request::is('product*') ? 'active' : '' }}">Product</a> -->
                 <a href="{{ route('about.index') }}" class="nav-item nav-link {{ Request::is('about*') ? 'active' : '' }}">About</a>
+                <a href="{{ route('news.index') }}" class="nav-item nav-link {{ Request::is('news*') ? 'active' : '' }}">News</a>
                 <a href="{{ route('contact.index') }}" class="nav-item nav-link {{ Request::is('contact*') ? 'active' : '' }}">Contact</a>
             </div>
             <button type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
