@@ -339,7 +339,7 @@
                             @endif
                             <img src="{{ asset('img/portfolio-6.jpg') }}" class="card-img-top img-fluid" alt="Class" style="height: 180px; object-fit: cover;">
                             <div class="card-body p-3 p-md-4 d-flex flex-column">
-                                <h5 class="card-title text-center mb-3">Bimbingan Belajar Individu</h5>
+                                <h5 class="card-title text-center mb-3">Kelas Bimbingan Belajar Individu</h5>
                                 <p class="text-center text-primary fw-bold mb-3">Harga Menyesuaikan</p>
                                 <div class="text-center mt-auto">
                                     <a href="#" class="btn btn-sm btn-outline-dark rounded-pill px-4">View Details →</a>
