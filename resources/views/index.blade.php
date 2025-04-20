@@ -10,7 +10,7 @@
                         <div class="col-lg-6 text-center text-lg-start">
                             <h1 class="text-white mb-4 animated zoomIn">Halo, Solvethinker!</h1>
                             <p class="text-white pb-3 animated zoomIn">
-                                Siap upgrade skill kamu di dunia software development, ML AI Data Science, dan Internet of Things. Di sini kamu nggak cuma belajar bareng mentor kece, tapi juga bisa dapetin komponen elektronika buat project impianmu!
+                                Siap upgrade skill kamu di dunia Software Development, ML AI Data Science, dan Internet of Things. Di sini kamu nggak cuma belajar bareng mentor kece, tapi juga bisa dapetin komponen elektronika buat project impianmu!
                             </p>
                             <button id="subscribeButton" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Berlangganan</button>
                             <a href="" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Kontak Kami</a>
