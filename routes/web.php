@@ -53,9 +53,9 @@ route::middleware(['guest:user'])->group(function () {
         return view('contact');
     })->name('contact.index');
 
-    Route::get('/classes', function () {
-        return view('classes');
-    })->name('classes.index');
+    Route::get('/class', function () {
+        return view('class');
+    })->name('class.index');
 
     Route::get('/news', function () {
         return view('news');

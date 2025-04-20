@@ -3,13 +3,13 @@
     <div class="container py-5 px-lg-5">
         <div class="row g-5">
             <div class="col-md-6 col-lg-3">
-                <h5 class="text-white mb-4">Our Contact</h5>
+                <h5 class="text-white mb-4">Kontak Kami</h5>
                 <p><i class="fa fa-map-marker-alt me-3"></i>Jl. Sukabirus, Gg. Raden Saleh, No.32, Desa Citeureup, Kec. Dayeuhkolot, Kab. Bandung, Jawa Barat</p>
                 <p><i class="fa fa-phone-alt me-3"></i>0813-5656-5025</p>
                 <p><i class="fa fa-envelope me-3"></i>solvethinks@gmail.com</p>
             </div>
             <div class="col-md-6 col-lg-3">
-                <h5 class="text-white mb-4">Popular Link</h5>
+                <h5 class="text-white mb-4">Link Populer</h5>
                 <a class="btn btn-link" href="">E-Learning</a>
                 <a class="btn btn-link" href="">Electronic Component</a>
                 <!-- <a class="btn btn-link" href="">Product</a> -->
@@ -29,16 +29,11 @@
                             <img class="img-fluid rounded object-fit-contain" src="img/logo-sman-dayeuhkolot-1.png" alt="Logo SMAN Dayeuhkolot">
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="ratio ratio-1x1">
-                            <img class="img-fluid rounded object-fit-contain" src="img/logo2.png" alt="Logo Lainnya">
-                        </div>
-                    </div>
                 </div>
 
             </div>
             <div class="col-md-6 col-lg-3">
-                <h5 class="text-white mb-4">Social Media</h5>
+                <h5 class="text-white mb-4">Media Sosial</h5>
                 <div class="position-relative w-100 mt-3">
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-whatsapp"></i></a>

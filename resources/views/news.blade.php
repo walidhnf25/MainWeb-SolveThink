@@ -6,13 +6,13 @@
     <div class="container-fluid my-5 py-5 px-lg-5">
         <div class="row g-5 py-5">
             <div class="col-12 text-center">
-                <h1 class="text-white animated zoomIn">News</h1>
+                <h1 class="text-white animated zoomIn">Berita</h1>
                 <hr class="bg-white mx-auto mt-0" style="width: 90px;">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center">
                         <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
                         <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">News</li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Berita</li>
                     </ol>
                 </nav>
             </div>
@@ -25,7 +25,7 @@
     <div class="row mb-4">
         <div class="col-12">
             <h2 class="fw-bold text-center mb-3">Berita Terkini</h2>
-            <p class="text-center text-muted">Stay informed about our most recent activities, events, and announcements</p>
+            <p class="text-center text-muted">Tetap terinformasi tentang aktivitas, acara, dan pengumuman terbaru kami.</p>
             <hr class="mx-auto" style="width: 90px; height: 3px; background-color: #dc3545;">
         </div>
     </div>
@@ -43,7 +43,7 @@
                         <div class="card-body">
                             <h6 class="fw-bold">Menelusuri Jejak Tradisi Nusantara</h6>
                             <p class="text-muted small">Warisan budaya adalah cermin jati diri bangsa yang tak lekang oleh waktu, mencerminkan kekayaan nilai, sejarah, dan kearifan lokal dari berbagai daerah di Indonesia.</p>
-                            <a href="{{ route('news.detail') }}" class="btn btn-outline-danger rounded-pill px-4">Baca <i class="bi bi-arrow-right"></i></a>
+                            <a href="#" class="btn btn-outline-danger rounded-pill px-4">Baca <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
             <!-- Recent Posts -->
             <div class="card mb-4 border-0 shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title">Recent Posts</h5>
+                    <h5 class="card-title">Post Terkini</h5>
                     <!-- Add your sidebar content here -->
                     <ul class="list-group list-group-flush">
                         <!-- Post 1 -->

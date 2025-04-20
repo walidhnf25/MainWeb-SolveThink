@@ -8,7 +8,7 @@
                         <hr class="bg-white mx-auto mt-0" style="width: 90px;">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a class="text-white" href="#">Dashboard</a></li>
                                 <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
                                 <li class="breadcrumb-item text-white active" aria-current="page">Software Development</li>
                             </ol>
@@ -20,7 +20,7 @@
 
         <div class="container py-5">
             <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="position-relative d-inline text-primary ps-4">Our E-Learning</h6>
+                <h6 class="position-relative d-inline text-primary ps-4">E-Learning Kami</h6>
                 <h2 class="mt-2">Materi-Materi Pembelajaran</h2>
             </div>
 

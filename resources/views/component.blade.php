@@ -4,13 +4,13 @@
                 <div class="container-fluid my-5 py-5 px-lg-5">
                     <div class="row g-5 py-5">
                         <div class="col-12 text-center">
-                            <h1 class="text-white animated zoomIn">Electronic Component</h1>
+                            <h1 class="text-white animated zoomIn">Komponen Elektronika</h1>
                             <hr class="bg-white mx-auto mt-0" style="width: 90px;">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb justify-content-center">
-                                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                                    <li class="breadcrumb-item"><a class="text-white" href="#">Dashboard</a></li>
                                     <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                                    <li class="breadcrumb-item text-white active" aria-current="page">Electronic Component</li>
+                                    <li class="breadcrumb-item text-white active" aria-current="page">Komponen Elektronika</li>
                                 </ol>
                             </nav>
                         </div>
@@ -23,7 +23,7 @@
         <div class="container-xxl py-5">
             <div class="container px-lg-5">
                 <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="position-relative d-inline text-primary ps-4">Our Electronic Component</h6>
+                    <h6 class="position-relative d-inline text-primary ps-4">Komponen Elektronika Kami</h6>
                     <h2 class="mt-2">Komponen-Komponen Elektronika</h2>
                 </div>
                 <div class="row mb-3">
