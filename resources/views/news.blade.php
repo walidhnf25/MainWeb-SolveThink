@@ -10,7 +10,7 @@
                 <hr class="bg-white mx-auto mt-0" style="width: 90px;">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center">
-                        <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-white" href="#">Dashboard</a></li>
                         <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
                         <li class="breadcrumb-item text-white active" aria-current="page">Berita</li>
                     </ol>
@@ -80,7 +80,7 @@
                 <div class="col">
                     <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
                         <div class="position-relative">
-                            <img src="{{ asset('img/logo2.png') }}" class="card-img-top w-100 object-fit-cover" alt="News Image" style="height: 250px; object-fit: cover;">
+                            <img src="{{ asset('img/portfolio-6.jpg') }}" class="card-img-top w-100 object-fit-cover" alt="News Image" style="height: 250px; object-fit: cover;">
                         </div>
                         <div class="card-body">
                             <h6 class="fw-bold">Kunjungan Budaya ke Keraton Yogyakarta</h6>
